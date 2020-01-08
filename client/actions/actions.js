@@ -22,6 +22,10 @@ const gameOver = deathText => {
   return { type: "GAME_OVER", payload: deathText };
 };
 
+const changePlayerHealth = health => {
+  return { type: "CHANGE_PLAYER_HEALTH", payload: health };
+};
+
 //helper functions
 
 export default {
@@ -30,5 +34,6 @@ export default {
   addItem,
   guardRoomSuccess,
   guardRoomFailure,
-  gameOver
+  gameOver,
+  changePlayerHealth
 };

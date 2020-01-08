@@ -5,3 +5,8 @@
 .movementsButton {
   margin: 15px;
 }
+
+#deathHeader {
+  color: maroon;
+  font-weight: bold;
+}

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 const GameOver = ({ deathText }) => {
   return (
     <div>
-      <h3>UNTIMELY DEATH</h3>
+      <h3 id="deathHeader">UNTIMELY DEATH</h3>
       <p>{deathText}</p>
     </div>
   );

@@ -12,9 +12,19 @@ const initialState = {
   playerMap: playerMapContainer,
   playerInventory: [],
   landingPage: true,
-  roomVariables: { GuardRoom: {} },
+  roomVariables: { GuardRoom: {}, ThirdRoom: {} },
   gameOver: false,
-  deathText: ""
+  deathText: "",
+  playerHealth: 10
+};
+
+const playerHealth = (state = 10, action) => {
+  switch (action.type) {
+    case "CHANGE_PLAYER_HEALTH":
+      return action.payload;
+    default:
+      return state;
+  }
 };
 
 const deathText = (state = "", action) => {
@@ -126,7 +136,8 @@ const rootReducer = combineReducers({
   playerInventory,
   roomVariables,
   gameOver,
-  deathText
+  deathText,
+  playerHealth
 });
 
 export default { rootReducer, initialState };

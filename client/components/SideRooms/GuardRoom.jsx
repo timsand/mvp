@@ -16,7 +16,7 @@ const GuardRoom = ({ roomVariables }) => {
     const roll = Math.random() * 100;
     console.log(roll);
 
-    if (roll > 30) {
+    if (roll > 35) {
       dispatch(addItem("rusty dagger"));
       dispatch(guardRoomSuccess());
     } else {

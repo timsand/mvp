@@ -1,6 +1,6 @@
 const path = require("path");
 const DIST_FOLDER = path.join(__dirname, "/public");
-const ENTRY_FILE = "./client/index.js";
+const ENTRY_FILE = "./client/index.jsx";
 const config = {
   entry: ENTRY_FILE,
   output: {

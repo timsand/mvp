@@ -1,12 +1,18 @@
-import React from 'react';
+import React from "react";
+import { connect } from "react-redux";
 
+const App = ({ currentRoom }) => {
+  console.log(currentRoom);
 
-const App = () => {
   return (
     <div>
       <p>This will work!</p>
     </div>
-  )
-}
+  );
+};
 
-export default App;
+const mapStateToProps = state => {
+  return { currentRoom: state.currentRoom, playerName: state.playerName };
+};
+
+export default connect(mapStateToProps)(App);

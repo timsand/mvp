@@ -1,5 +1,6 @@
 const initialState = {
-  name: "Grog"
+  playerName: "Grog",
+  currentRoom: "FirstRoom"
 };
 
 export function masterReducer(state = initialState, action) {

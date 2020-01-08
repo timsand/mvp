@@ -1,10 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
+import LandingPage from "./LandingPage.jsx";
 import FirstRoom from "./rooms/FirstRoom.jsx";
 import SecondRoom from "./rooms/SecondRoom.jsx";
 
-const App = ({ currentRoom }) => {
-  console.log(currentRoom);
+const App = ({ currentRoom, landingPage }) => {
+  if (landingPage) {
+    return <LandingPage />;
+  }
   switch (currentRoom) {
     case "FirstRoom":
       return (
@@ -28,7 +31,12 @@ const App = ({ currentRoom }) => {
 };
 
 const mapStateToProps = state => {
-  return { currentRoom: state.currentRoom, playerName: state.playerName };
+  return {
+    currentRoom: state.currentRoom,
+    playerName: state.playerName,
+    playerMap: state.playerMap,
+    landingPage: state.landingPage
+  };
 };
 
 export default connect(mapStateToProps)(App);

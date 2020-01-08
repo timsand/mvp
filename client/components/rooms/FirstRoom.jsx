@@ -6,13 +6,12 @@ import { useDispatch } from "react-redux";
 const FirstRoom = ({ playerName }) => {
   const dispatch = useDispatch();
   const changeRoom = actions.changeRoom;
-  console.log(changeRoom);
   return (
     <div>
       <p>You are in the FirstRoom {playerName}</p>
       <button
         onClick={() => {
-          dispatch(changeRoom("right"));
+          dispatch(changeRoom("SecondRoom"));
         }}
       >
         Click me to advance to the Second Room

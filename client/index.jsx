@@ -3,12 +3,20 @@ import ReactDOM from "react-dom";
 import App from "./components/app.jsx";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import { masterReducer } from "./reducers/masterReducer.js";
+import reducers from "./reducers/masterReducer.js";
+
+const rootReducer = reducers.rootReducer;
+const initialState = reducers.initialState;
 
 const store = createStore(
-  masterReducer,
+  rootReducer,
+  initialState,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
+
+//  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+// console.log(reducer);
 
 ReactDOM.render(
   <Provider store={store}>

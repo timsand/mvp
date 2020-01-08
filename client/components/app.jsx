@@ -1,21 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
 import LandingPage from "./LandingPage.jsx";
-// import FirstRoom from "./MainRooms/FirstRoom.jsx";
-// import SecondRoom from "./MainRooms/SecondRoom.jsx";
-// import ThirdRoom from "./MainRooms/ThirdRoom.jsx";
-// import FourthRoom from "./MainRooms/FourthRoom.jsx";
-// import LastRoom from "./MainRooms/LastRoom.jsx";
-// import GuardRoom from "./SideRooms/GuardRoom.jsx";
 import GameOver from "./GameOver.jsx";
 import RoomRendering from "./RoomRendering.jsx";
+import FightingRoom from "./FightingRoom/FightingRoom.jsx";
 
-const App = ({ landingPage, gameOver, playerHealth }) => {
+const App = ({ landingPage, gameOver, playerHealth, isFighting }) => {
   if (landingPage) {
     return <LandingPage />;
   }
   if (gameOver) {
     return <GameOver />;
+  }
+  if (isFighting) {
+    return <FightingRoom />;
   }
   return (
     <div>
@@ -33,7 +31,8 @@ const mapStateToProps = state => {
     playerName: state.playerName,
     landingPage: state.landingPage,
     gameOver: state.gameOver,
-    playerHealth: state.playerHealth
+    playerHealth: state.playerHealth,
+    isFighting: state.isFighting
   };
 };
 

@@ -1,21 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import LandingPage from "./LandingPage.jsx";
 import FirstRoom from "./MainRooms/FirstRoom.jsx";
 import SecondRoom from "./MainRooms/SecondRoom.jsx";
 import ThirdRoom from "./MainRooms/ThirdRoom.jsx";
 import FourthRoom from "./MainRooms/FourthRoom.jsx";
 import LastRoom from "./MainRooms/LastRoom.jsx";
 import GuardRoom from "./SideRooms/GuardRoom.jsx";
-import GameOver from "./GameOver.jsx";
 
-const App = ({ currentRoom, landingPage, gameOver, playerHealth }) => {
-  if (landingPage) {
-    return <LandingPage />;
-  }
-  if (gameOver) {
-    return <GameOver />;
-  }
+const App = ({ currentRoom }) => {
   switch (currentRoom) {
     case "FirstRoom":
       return (
@@ -65,11 +57,7 @@ const App = ({ currentRoom, landingPage, gameOver, playerHealth }) => {
 const mapStateToProps = state => {
   return {
     currentRoom: state.currentRoom,
-    playerName: state.playerName,
-    playerMap: state.playerMap,
-    landingPage: state.landingPage,
-    gameOver: state.gameOver,
-    playerHealth: state.playerHealth
+    playerName: state.playerName
   };
 };
 

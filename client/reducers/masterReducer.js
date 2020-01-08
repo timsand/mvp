@@ -12,10 +12,34 @@ const initialState = {
   playerMap: playerMapContainer,
   playerInventory: [],
   landingPage: true,
-  roomVariables: { GuardRoom: {}, ThirdRoom: {} },
+  roomVariables: { GuardRoom: {}, ThirdRoom: { enemy: true } },
   gameOver: false,
   deathText: "",
-  playerHealth: 10
+  playerHealth: 10,
+  isFighting: false,
+  currentEnemy: {}
+};
+
+const isFighting = (state = false, action) => {
+  switch (action.type) {
+    case "NEW_FIGHT":
+      return true;
+    case "FIGHT_ENDED":
+      return false;
+    default:
+      return state;
+  }
+};
+
+const currentEnemy = (state = {}, action) => {
+  switch (action.type) {
+    case "NEW_FIGHT":
+      return action.payload;
+    case "FIGHT_ENDED":
+      return {};
+    default:
+      return state;
+  }
 };
 
 const playerHealth = (state = 10, action) => {
@@ -61,6 +85,13 @@ const roomVariables = (state = {}, action) => {
         }
       });
       return guardFailure;
+    case "THIRD_ROOM_ENEMY_BATTLE":
+      let thirdRoomEnemyBattle = Object.assign({}, state, {
+        ThirdRoom: {
+          enemy: false
+        }
+      });
+      return thirdRoomEnemyBattle;
     default:
       return state;
   }
@@ -137,7 +168,9 @@ const rootReducer = combineReducers({
   roomVariables,
   gameOver,
   deathText,
-  playerHealth
+  playerHealth,
+  isFighting,
+  currentEnemy
 });
 
 export default { rootReducer, initialState };

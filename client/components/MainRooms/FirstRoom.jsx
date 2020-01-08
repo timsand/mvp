@@ -9,13 +9,16 @@ const FirstRoom = ({ playerName }) => {
   return (
     <div>
       <p>You are in the FirstRoom {playerName}</p>
-      <button
-        onClick={() => {
-          dispatch(changeRoom("SecondRoom"));
-        }}
-      >
-        Click me to advance to the Second Room
-      </button>
+      <div className="movementsBar">
+        <button
+          onClick={() => {
+            dispatch(changeRoom("SecondRoom"));
+          }}
+          className="movementsButton"
+        >
+          Click me to advance to the Second Room
+        </button>
+      </div>
     </div>
   );
 };

@@ -1,8 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import LandingPage from "./LandingPage.jsx";
-import FirstRoom from "./rooms/FirstRoom.jsx";
-import SecondRoom from "./rooms/SecondRoom.jsx";
+import FirstRoom from "./MainRooms/FirstRoom.jsx";
+import SecondRoom from "./MainRooms/SecondRoom.jsx";
+import ThirdRoom from "./MainRooms/ThirdRoom.jsx";
+import FourthRoom from "./MainRooms/FourthRoom.jsx";
+import LastRoom from "./MainRooms/LastRoom.jsx";
+import GuardRoom from "./SideRooms/GuardRoom.jsx";
 
 const App = ({ currentRoom, landingPage }) => {
   if (landingPage) {
@@ -19,6 +23,30 @@ const App = ({ currentRoom, landingPage }) => {
       return (
         <div>
           <SecondRoom />
+        </div>
+      );
+    case "GuardRoom":
+      return (
+        <div>
+          <GuardRoom />
+        </div>
+      );
+    case "ThirdRoom":
+      return (
+        <div>
+          <ThirdRoom />
+        </div>
+      );
+    case "FourthRoom":
+      return (
+        <div>
+          <FourthRoom />
+        </div>
+      );
+    case "LastRoom":
+      return (
+        <div>
+          <LastRoom />
         </div>
       );
     default:

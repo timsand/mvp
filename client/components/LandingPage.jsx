@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import { useDispatch } from "react-redux";
 import actions from "../actions/actions.js";
 

@@ -18,6 +18,10 @@ const guardRoomFailure = () => {
   return { type: "GUARD_ROOM_FAILURE" };
 };
 
+const gameOver = deathText => {
+  return { type: "GAME_OVER", payload: deathText };
+};
+
 //helper functions
 
 export default {
@@ -25,5 +29,6 @@ export default {
   newName,
   addItem,
   guardRoomSuccess,
-  guardRoomFailure
+  guardRoomFailure,
+  gameOver
 };

@@ -7,10 +7,14 @@ import ThirdRoom from "./MainRooms/ThirdRoom.jsx";
 import FourthRoom from "./MainRooms/FourthRoom.jsx";
 import LastRoom from "./MainRooms/LastRoom.jsx";
 import GuardRoom from "./SideRooms/GuardRoom.jsx";
+import GameOver from "./GameOver.jsx";
 
-const App = ({ currentRoom, landingPage }) => {
+const App = ({ currentRoom, landingPage, gameOver }) => {
   if (landingPage) {
     return <LandingPage />;
+  }
+  if (gameOver) {
+    return <GameOver />;
   }
   switch (currentRoom) {
     case "FirstRoom":
@@ -63,7 +67,8 @@ const mapStateToProps = state => {
     currentRoom: state.currentRoom,
     playerName: state.playerName,
     playerMap: state.playerMap,
-    landingPage: state.landingPage
+    landingPage: state.landingPage,
+    gameOver: state.gameOver
   };
 };
 

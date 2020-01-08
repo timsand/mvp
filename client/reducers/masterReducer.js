@@ -12,7 +12,27 @@ const initialState = {
   playerMap: playerMapContainer,
   playerInventory: [],
   landingPage: true,
-  roomVariables: { GuardRoom: {} }
+  roomVariables: { GuardRoom: {} },
+  gameOver: false,
+  deathText: ""
+};
+
+const deathText = (state = "", action) => {
+  switch (action.type) {
+    case "GAME_OVER":
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
+const gameOver = (state = false, action) => {
+  switch (action.type) {
+    case "GAME_OVER":
+      return true;
+    default:
+      return false;
+  }
 };
 
 const roomVariables = (state = {}, action) => {
@@ -104,7 +124,9 @@ const rootReducer = combineReducers({
   playerMap,
   currentRoom,
   playerInventory,
-  roomVariables
+  roomVariables,
+  gameOver,
+  deathText
 });
 
 export default { rootReducer, initialState };

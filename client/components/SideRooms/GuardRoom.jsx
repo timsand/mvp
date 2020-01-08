@@ -10,6 +10,7 @@ const GuardRoom = ({ roomVariables }) => {
   const addItem = actions.addItem;
   const guardRoomSuccess = actions.guardRoomSuccess;
   const guardRoomFailure = actions.guardRoomFailure;
+  const gameOver = actions.gameOver;
 
   const rollTheftSuccess = () => {
     const roll = Math.random() * 100;
@@ -20,6 +21,7 @@ const GuardRoom = ({ roomVariables }) => {
       dispatch(guardRoomSuccess());
     } else {
       dispatch(guardRoomFailure());
+      dispatch(gameOver("The guard cut you down. How sad!"));
     }
   };
 

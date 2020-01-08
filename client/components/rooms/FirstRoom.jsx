@@ -1,11 +1,22 @@
 import React from "react";
+import actions from "../../actions/actions.js";
 import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const FirstRoom = ({ playerName }) => {
-  console.log(playerName);
+  const dispatch = useDispatch();
+  const changeRoom = actions.changeRoom;
+  console.log(changeRoom);
   return (
     <div>
       <p>You are in the FirstRoom {playerName}</p>
+      <button
+        onClick={() => {
+          dispatch(changeRoom("right"));
+        }}
+      >
+        Click me to advance to the Second Room
+      </button>
     </div>
   );
 };

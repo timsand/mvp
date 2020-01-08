@@ -1,14 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
+import FirstRoom from "./rooms/FirstRoom.jsx";
 
 const App = ({ currentRoom }) => {
-  console.log(currentRoom);
-
-  return (
-    <div>
-      <p>This will work!</p>
-    </div>
-  );
+  switch (currentRoom) {
+    case "FirstRoom":
+      return (
+        <div>
+          <FirstRoom />
+        </div>
+      );
+    default:
+      return (
+        <div>
+          <p>This will work!</p>
+        </div>
+      );
+  }
 };
 
 const mapStateToProps = state => {

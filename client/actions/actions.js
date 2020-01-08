@@ -14,6 +14,16 @@ const guardRoomSuccess = () => {
   return { type: "GUARD_ROOM_SUCCESS" };
 };
 
+const guardRoomFailure = () => {
+  return { type: "GUARD_ROOM_FAILURE" };
+};
+
 //helper functions
 
-export default { changeRoom, newName, addItem, guardRoomSuccess };
+export default {
+  changeRoom,
+  newName,
+  addItem,
+  guardRoomSuccess,
+  guardRoomFailure
+};

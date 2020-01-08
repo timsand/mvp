@@ -9,10 +9,18 @@ const GuardRoom = ({ roomVariables }) => {
   const changeRoom = actions.changeRoom;
   const addItem = actions.addItem;
   const guardRoomSuccess = actions.guardRoomSuccess;
+  const guardRoomFailure = actions.guardRoomFailure;
 
   const rollTheftSuccess = () => {
-    dispatch(addItem("rusty dagger"));
-    dispatch(guardRoomSuccess());
+    const roll = Math.random() * 100;
+    console.log(roll);
+
+    if (roll > 30) {
+      dispatch(addItem("rusty dagger"));
+      dispatch(guardRoomSuccess());
+    } else {
+      dispatch(guardRoomFailure());
+    }
   };
 
   const roomOptions =
@@ -37,7 +45,9 @@ const GuardRoom = ({ roomVariables }) => {
         <p>Mission success text</p>
       </div>
     ) : (
-      <div>Failed</div>
+      <div>
+        <p>Mission failed text</p>
+      </div>
     );
 
   return (

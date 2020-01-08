@@ -18,12 +18,19 @@ const initialState = {
 const roomVariables = (state = {}, action) => {
   switch (action.type) {
     case "GUARD_ROOM_SUCCESS":
-      let newState = Object.assign({}, state, {
+      let guardSuccess = Object.assign({}, state, {
         GuardRoom: {
           theftSuccess: true
         }
       });
-      return newState;
+      return guardSuccess;
+    case "GUARD_ROOM_FAILURE":
+      let guardFailure = Object.assign({}, state, {
+        GuardRoom: {
+          theftSuccess: false
+        }
+      });
+      return guardFailure;
     default:
       return state;
   }

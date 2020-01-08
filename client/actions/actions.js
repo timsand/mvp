@@ -38,6 +38,10 @@ const fightEnded = () => {
   return { type: "FIGHT_ENDED" };
 };
 
+const damageEnemy = damage => {
+  return { type: "DAMAGE_ENEMY", payload: damage };
+};
+
 //helper functions
 
 export default {
@@ -50,5 +54,6 @@ export default {
   changePlayerHealth,
   newFight,
   fightEnded,
-  thirdRoomEnemyBattle
+  thirdRoomEnemyBattle,
+  damageEnemy
 };

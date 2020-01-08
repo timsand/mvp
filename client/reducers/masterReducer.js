@@ -37,6 +37,10 @@ const currentEnemy = (state = {}, action) => {
       return action.payload;
     case "FIGHT_ENDED":
       return {};
+    case "DAMAGE_ENEMY":
+      let newHealth = state;
+      newHealth.hp = newHealth.hp - action.payload;
+      return newHealth;
     default:
       return state;
   }

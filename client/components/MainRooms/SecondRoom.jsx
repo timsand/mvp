@@ -1,12 +1,13 @@
 import React from "react";
-// import GuardRoom from "../SideRooms/GuardRoom.jsx";
+import GuardRoom from "../SideRooms/GuardRoom.jsx";
 import actions from "../../actions/actions.js";
 import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
 
-const SecondRoom = () => {
+const SecondRoom = ({ currentRoom }) => {
   const dispatch = useDispatch();
   const changeRoom = actions.changeRoom;
+
   return (
     <div>
       <p>In the second room...</p>
@@ -32,4 +33,8 @@ const SecondRoom = () => {
   );
 };
 
-export default SecondRoom;
+const mapStateToProps = state => {
+  return { currentRoom: state.currentRoom };
+};
+
+export default connect(mapStateToProps)(SecondRoom);

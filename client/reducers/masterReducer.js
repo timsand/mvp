@@ -10,13 +10,40 @@ const initialState = {
   playerName: "Grog",
   currentRoom: "FirstRoom",
   playerMap: playerMapContainer,
-  landingPage: true
+  playerInventory: [],
+  landingPage: true,
+  roomVariables: { GuardRoom: {} }
+};
+
+const roomVariables = (state = {}, action) => {
+  switch (action.type) {
+    case "GUARD_ROOM_SUCCESS":
+      let newState = Object.assign({}, state, {
+        GuardRoom: {
+          theftSuccess: true
+        }
+      });
+      return newState;
+    default:
+      return state;
+  }
 };
 
 const landingPage = (state = true, action) => {
   switch (action.type) {
     case "NEW_NAME":
       return false;
+    default:
+      return state;
+  }
+};
+
+const playerInventory = (state = [], action) => {
+  switch (action.type) {
+    case "ADD_ITEM":
+      let newState = state.slice();
+      newState.push(action.payload);
+      return newState;
     default:
       return state;
   }
@@ -68,7 +95,9 @@ const rootReducer = combineReducers({
   landingPage,
   playerName,
   playerMap,
-  currentRoom
+  currentRoom,
+  playerInventory,
+  roomVariables
 });
 
 export default { rootReducer, initialState };

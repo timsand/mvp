@@ -4,4 +4,10 @@ const smallRat = {
   attack: 2
 };
 
-export default { smallRat };
+const lowlyGuard = {
+  name: "Lowly Guard",
+  hp: 15,
+  attack: 4
+};
+
+export default { smallRat, lowlyGuard };

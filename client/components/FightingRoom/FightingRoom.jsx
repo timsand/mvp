@@ -8,6 +8,7 @@ const FightRoom = ({ currentEnemy, playerHealth, playerAttack }) => {
   const damageEnemy = actions.damageEnemy;
   const damagePlayer = actions.damagePlayer;
   const fightEnded = actions.fightEnded;
+  const gameOver = actions.gameOver;
 
   const attack = () => {
     let attackValue = Math.round(Math.random() * 2);
@@ -17,6 +18,9 @@ const FightRoom = ({ currentEnemy, playerHealth, playerAttack }) => {
     } else {
       dispatch(damageEnemy(attackValue));
       dispatch(damagePlayer(currentEnemy.attack));
+      if (playerHealth - currentEnemy.attack <= 0) {
+        dispatch(gameOver("The fight was too much for you. You have fallen!"));
+      }
     }
   };
 

@@ -12,7 +12,11 @@ const initialState = {
   playerMap: playerMapContainer,
   playerInventory: [],
   landingPage: true,
-  roomVariables: { GuardRoom: {}, ThirdRoom: { enemy: true } },
+  roomVariables: {
+    GuardRoom: {},
+    ThirdRoom: { enemy: true },
+    FourthRoom: { enemy: true }
+  },
   gameOver: false,
   deathText: "",
   playerHealth: 10,
@@ -134,6 +138,12 @@ const roomVariables = (state = {}, action) => {
         }
       });
       return thirdRoomEnemyBattle;
+    case "FOURTH_ROOM_ENEMY_BATTLE":
+      let fourthRoomEnemyBattle = Object.assign({}, state, {
+        FourthRoom: {
+          enemy: false
+        }
+      });
     default:
       return state;
   }

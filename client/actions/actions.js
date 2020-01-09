@@ -38,6 +38,14 @@ const changePlayerHealth = health => {
   return { type: "CHANGE_PLAYER_HEALTH", payload: health };
 };
 
+const healPlayer = item => {
+  return { type: "HEAL_PLAYER", payload: item.healValue };
+};
+
+const removeItem = item => {
+  return { type: "REMOVE_ITEM", payload: item };
+};
+
 const newFight = enemy => {
   return { type: "NEW_FIGHT", payload: enemy };
 };
@@ -85,5 +93,7 @@ export default {
   damagePlayer,
   displayInventory,
   closeInventory,
-  equipItem
+  equipItem,
+  healPlayer,
+  removeItem
 };

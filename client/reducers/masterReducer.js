@@ -21,7 +21,7 @@ const initialState = {
   gameOver: false,
   deathText: "",
   playerHealth: 10,
-  playerAttack: 14,
+  playerAttack: 4,
   playerWeapon: null,
   isFighting: false,
   currentEnemy: {},
@@ -31,8 +31,6 @@ const initialState = {
 const playerAttack = (state = 4, action) => {
   switch (action.type) {
     case "EQUIP_ITEM":
-      console.log(action.payload);
-      console.log(action.payload.attack);
       return action.payload.attack;
     default:
       return state;
@@ -93,6 +91,8 @@ const playerHealth = (state = 10, action) => {
       return action.payload;
     case "DAMAGE_PLAYER":
       return state - action.payload;
+    case "HEAL_PLAYER":
+      return state + action.payload;
     default:
       return state;
   }
@@ -171,6 +171,10 @@ const playerInventory = (state = [], action) => {
       let newState = state.slice();
       newState.push(action.payload);
       return newState;
+    case "REMOVE_ITEM":
+      let toRemove = state.slice();
+      toRemove.splice(toRemove.indexOf(action.payload.name), 1);
+      return toRemove;
     default:
       return state;
   }

@@ -6,19 +6,35 @@ import { connect } from "react-redux";
 const Items = ({ item, isDisplayingInventory, inventory }) => {
   const dispatch = useDispatch();
 
-  return (
-    <div>
-      <h3>{item.name}</h3>
-      <button
-        value={item}
-        onClick={e => {
-          dispatch(actions.equipItem(item));
-        }}
-      >
-        Equip
-      </button>
-    </div>
-  );
+  const options =
+    item.type === "food" ? (
+      <div>
+        <h3>{item.name}</h3>
+        <button
+          value={item}
+          onClick={e => {
+            dispatch(actions.healPlayer(item));
+            dispatch(actions.removeItem(item));
+          }}
+        >
+          Use
+        </button>
+      </div>
+    ) : (
+      <div>
+        <h3>{item.name}</h3>
+        <button
+          value={item}
+          onClick={e => {
+            dispatch(actions.equipItem(item));
+          }}
+        >
+          Equip
+        </button>
+      </div>
+    );
+
+  return <div>{options}</div>;
 };
 
 const mapStateToProps = (state, ownProps) => {

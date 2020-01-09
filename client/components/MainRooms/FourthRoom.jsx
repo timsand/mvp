@@ -16,7 +16,7 @@ const FourthRoom = () => {
           }}
           className="movementsButton"
         >
-          Proceed to room 4
+          Proceed to the final room...
         </button>
       </div>
     </div>

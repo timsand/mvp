@@ -17,7 +17,19 @@ const initialState = {
   deathText: "",
   playerHealth: 10,
   isFighting: false,
-  currentEnemy: {}
+  currentEnemy: {},
+  isDisplayingInventory: false
+};
+
+const isDisplayingInventory = (state = false, action) => {
+  switch (action.type) {
+    case "DISPLAY_INVENTORY":
+      return true;
+    case "CLOSE_INVENTORY":
+      return false;
+    default:
+      return state;
+  }
 };
 
 const isFighting = (state = false, action) => {
@@ -178,7 +190,8 @@ const rootReducer = combineReducers({
   deathText,
   playerHealth,
   isFighting,
-  currentEnemy
+  currentEnemy,
+  isDisplayingInventory
 });
 
 export default { rootReducer, initialState };

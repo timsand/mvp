@@ -4,6 +4,7 @@ import LandingPage from "./LandingPage.jsx";
 import GameOver from "./GameOver.jsx";
 import RoomRendering from "./RoomRendering.jsx";
 import FightingRoom from "./FightingRoom/FightingRoom.jsx";
+import Inventory from "./Inventory/Inventory.jsx";
 
 const App = ({ landingPage, gameOver, playerHealth, isFighting }) => {
   if (landingPage) {
@@ -21,6 +22,7 @@ const App = ({ landingPage, gameOver, playerHealth, isFighting }) => {
         <h3 className="playerHealthBar">Player Health</h3>
         <p className="playerHealthCount">{playerHealth}</p>
       </div>
+      <Inventory />
       <RoomRendering />
     </div>
   );

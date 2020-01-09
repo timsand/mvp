@@ -6,7 +6,6 @@ import enemies from "../../enemies/enemies.js";
 
 const ThirdRoom = ({ roomVariables }) => {
   roomVariables = roomVariables.ThirdRoom;
-  console.log(roomVariables);
   const dispatch = useDispatch();
   const changeRoom = actions.changeRoom;
   const newFight = actions.newFight;
@@ -33,7 +32,7 @@ const ThirdRoom = ({ roomVariables }) => {
     </div>
   ) : (
     <div>
-      <p>In the third room...</p>
+      <p>The rat lays slain on the floor. You are truly a hero.</p>
       <div className="movementsBar">
         <button
           onClick={() => {

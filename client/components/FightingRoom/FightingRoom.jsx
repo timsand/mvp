@@ -53,7 +53,7 @@ const FightRoom = ({ currentEnemy, playerHealth }) => {
           <p className="playerHealthCount">{playerHealth}</p>
         </div>
         <div className="enemyHealthContainer">
-          <h3 className="enemyHealthBar">Enemy Health</h3>
+          <h3 className="enemyHealthBar">{currentEnemy.name} Health</h3>
           <p className="enemyHealthCount">{currentEnemy.hp}</p>
         </div>
       </div>

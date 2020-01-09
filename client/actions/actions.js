@@ -46,6 +46,14 @@ const damagePlayer = damage => {
   return { type: "DAMAGE_PLAYER", payload: damage };
 };
 
+const displayInventory = () => {
+  return { type: "DISPLAY_INVENTORY" };
+};
+
+const closeInventory = () => {
+  return { type: "CLOSE_INVENTORY" };
+};
+
 //helper functions
 
 export default {
@@ -60,5 +68,7 @@ export default {
   fightEnded,
   thirdRoomEnemyBattle,
   damageEnemy,
-  damagePlayer
+  damagePlayer,
+  displayInventory,
+  closeInventory
 };

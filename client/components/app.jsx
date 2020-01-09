@@ -29,7 +29,6 @@ const App = ({ landingPage, gameOver, playerHealth, isFighting, state }) => {
         data = data.data;
         console.log(data);
         dispatch(actions.loadData(data));
-        a;
       })
       .catch(err => {
         console.log(err);

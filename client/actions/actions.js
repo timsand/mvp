@@ -38,6 +38,10 @@ const fourthRoomEnemyBattle = () => {
   return { type: "FOURTH_ROOM_ENEMY_BATTLE" };
 };
 
+const finalRoomEnemyBattle = () => {
+  return { type: "FINAL_ROOM_ENEMY_BATTLE" };
+};
+
 const gameOver = deathText => {
   return { type: "GAME_OVER", payload: deathText };
 };
@@ -103,6 +107,7 @@ export default {
   fightEnded,
   thirdRoomEnemyBattle,
   fourthRoomEnemyBattle,
+  finalRoomEnemyBattle,
   damageEnemy,
   damagePlayer,
   displayInventory,

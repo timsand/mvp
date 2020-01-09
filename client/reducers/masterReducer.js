@@ -179,7 +179,7 @@ const roomVariables = (state = {}, action) => {
     case "FIRST_ROOM_MADE_DOG_FRIEND":
       let lastRoomDogVariable = Object.assign({}, state, {
         FirstRoom: { specialEvent: false, dogFriend: true },
-        LastRoom: { friendlyMutt: true }
+        LastRoom: { friendlyMutt: true, enemy: true }
       });
       return lastRoomDogVariable;
     case "FIRST_ROOM_MADE_DOG_ENEMY":
@@ -187,6 +187,11 @@ const roomVariables = (state = {}, action) => {
         FirstRoom: { specialEvent: false, dogFriend: false }
       });
       return firstRoomDogVariable;
+    case "FINAL_ROOM_ENEMY_BATTLE":
+      let finalRoomBattle = Object.assign({}, state, {
+        LastRoom: { enemy: false, dogFriend: true }
+      });
+      return finalRoomBattle;
     default:
       return state;
   }

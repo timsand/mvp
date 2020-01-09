@@ -1,12 +1,24 @@
 import React from "react";
 import { connect } from "react-redux";
+import Axios from "axios";
 import LandingPage from "./LandingPage.jsx";
 import GameOver from "./GameOver.jsx";
 import RoomRendering from "./RoomRendering.jsx";
 import FightingRoom from "./FightingRoom/FightingRoom.jsx";
 import Inventory from "./Inventory/Inventory.jsx";
 
-const App = ({ landingPage, gameOver, playerHealth, isFighting }) => {
+const App = ({ landingPage, gameOver, playerHealth, isFighting, state }) => {
+  const saveData = () => {
+    Axios.post("/save", state)
+      .then(() => {
+        console.log(state);
+        console.log("success");
+      })
+      .catch(() => {
+        console.log("error");
+      });
+  };
+
   if (landingPage) {
     return <LandingPage />;
   }
@@ -28,6 +40,16 @@ const App = ({ landingPage, gameOver, playerHealth, isFighting }) => {
       <div id="roomMasterContainer">
         <RoomRendering />
       </div>
+      <div id="utilityBar">
+        <button
+          onClick={() => {
+            saveData();
+          }}
+        >
+          Save
+        </button>
+        <button>Load</button>
+      </div>
     </div>
   );
 };
@@ -38,7 +60,8 @@ const mapStateToProps = state => {
     landingPage: state.landingPage,
     gameOver: state.gameOver,
     playerHealth: state.playerHealth,
-    isFighting: state.isFighting
+    isFighting: state.isFighting,
+    state: state
   };
 };
 

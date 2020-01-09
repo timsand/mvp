@@ -2,10 +2,9 @@ import React from "react";
 import actions from "../../actions/actions.js";
 import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
-import { stat } from "fs";
 
 const LastRoom = ({ roomVariables }) => {
-  roomVariables = roomVariables.LastRoom;
+  //render minotaur enemy based on dogfriend TODO
   const dispatch = useDispatch();
   const changeRoom = actions.changeRoom;
   return (

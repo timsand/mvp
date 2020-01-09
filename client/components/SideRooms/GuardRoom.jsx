@@ -14,7 +14,6 @@ const GuardRoom = ({ roomVariables }) => {
 
   const rollTheftSuccess = () => {
     const roll = Math.random() * 100;
-    console.log(roll);
 
     if (roll > 35) {
       let rustyDagger = { name: "rusty dagger", attack: 7 };

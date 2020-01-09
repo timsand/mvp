@@ -28,7 +28,7 @@ const FirstRoom = ({ playerName, roomVariables }) => {
             There's not much here except for a dog chewing on his bone...
           </p>
         </div>
-        <div className="specialAction">
+        <div className="specialActions">
           <button
             onClick={() => {
               let boneClub = { name: "boneClub", attack: 5 };

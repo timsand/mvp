@@ -12,7 +12,8 @@ User Stories
 \*Add directions for the rooms, rooms can split
 -Save feature with back-end tech
 -Launch game asking for name
-
+-Add dialogue into the game for certain rooms
+-Add fighting into the game
 Front-End
 React/Redux
 

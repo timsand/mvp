@@ -144,6 +144,7 @@ const roomVariables = (state = {}, action) => {
           enemy: false
         }
       });
+      return fourthRoomEnemyBattle;
     default:
       return state;
   }

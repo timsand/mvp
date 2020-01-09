@@ -43,7 +43,15 @@ const FourthRoom = ({ roomVariables }) => {
           }}
           className="movementsButton"
         >
-          Proceed to room 4
+          Proceed to the final room!
+        </button>
+        <button
+          onClick={() => {
+            dispatch(changeRoom("PantryRoom"));
+          }}
+          className="movementsButton"
+        >
+          Pantry Room
         </button>
       </div>
     </div>

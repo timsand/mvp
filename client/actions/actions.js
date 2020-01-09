@@ -18,6 +18,10 @@ const guardRoomFailure = () => {
   return { type: "GUARD_ROOM_FAILURE" };
 };
 
+const pantryRoomTookCheese = () => {
+  return { type: "PANTRY_ROOM_TOOK_CHEESE" };
+};
+
 const thirdRoomEnemyBattle = () => {
   return { type: "THIRD_ROOM_ENEMY_BATTLE" };
 };
@@ -70,6 +74,7 @@ export default {
   addItem,
   guardRoomSuccess,
   guardRoomFailure,
+  pantryRoomTookCheese,
   gameOver,
   changePlayerHealth,
   newFight,

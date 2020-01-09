@@ -15,12 +15,13 @@ const initialState = {
   roomVariables: {
     GuardRoom: {},
     ThirdRoom: { enemy: true },
-    FourthRoom: { enemy: true }
+    FourthRoom: { enemy: true },
+    PantryRoom: { tookCheese: false }
   },
   gameOver: false,
   deathText: "",
   playerHealth: 10,
-  playerAttack: 4,
+  playerAttack: 14,
   playerWeapon: null,
   isFighting: false,
   currentEnemy: {},
@@ -131,6 +132,11 @@ const roomVariables = (state = {}, action) => {
         }
       });
       return guardFailure;
+    case "PANTRY_ROOM_TOOK_CHEESE":
+      let pantryRoomTookCheese = Object.assign({}, state, {
+        PantryRoom: { tookCheese: true }
+      });
+      return pantryRoomTookCheese;
     case "THIRD_ROOM_ENEMY_BATTLE":
       let thirdRoomEnemyBattle = Object.assign({}, state, {
         ThirdRoom: {

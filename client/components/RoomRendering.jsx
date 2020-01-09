@@ -6,6 +6,7 @@ import ThirdRoom from "./MainRooms/ThirdRoom.jsx";
 import FourthRoom from "./MainRooms/FourthRoom.jsx";
 import LastRoom from "./MainRooms/LastRoom.jsx";
 import GuardRoom from "./SideRooms/GuardRoom.jsx";
+import PantryRoom from "./SideRooms/PantryRoom.jsx";
 
 const App = ({ currentRoom }) => {
   switch (currentRoom) {
@@ -37,6 +38,12 @@ const App = ({ currentRoom }) => {
       return (
         <div>
           <FourthRoom />
+        </div>
+      );
+    case "PantryRoom":
+      return (
+        <div>
+          <PantryRoom />
         </div>
       );
     case "LastRoom":

@@ -3,6 +3,14 @@
 }
 
 .movementsButton {
+  background-color: #534caf;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
   margin: 15px;
 }
 
@@ -20,6 +28,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.equippedWeapon {
+  color: goldenrod;
+}
+
+.hideButton {
+  display: none;
 }
 
 #fightContainer {

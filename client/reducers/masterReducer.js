@@ -13,10 +13,12 @@ const initialState = {
   playerInventory: [],
   landingPage: true,
   roomVariables: {
+    FirstRoom: { specialEvent: true, dogFriend: false },
     GuardRoom: {},
     ThirdRoom: { enemy: true },
     FourthRoom: { enemy: true },
-    PantryRoom: { tookCheese: false }
+    PantryRoom: { tookCheese: false },
+    LastRoom: { friendlyMutt: false, enemy: true }
   },
   gameOver: false,
   deathText: "",
@@ -151,6 +153,17 @@ const roomVariables = (state = {}, action) => {
         }
       });
       return fourthRoomEnemyBattle;
+    case "FIRST_ROOM_MADE_DOG_FRIEND":
+      let lastRoomDogVariable = Object.assign({}, state, {
+        FirstRoom: { specialEvent: false, dogFriend: true },
+        LastRoom: { friendlyMutt: true }
+      });
+      return lastRoomDogVariable;
+    case "FIRST_ROOM_MADE_DOG_ENEMY":
+      let firstRoomDogVariable = Object.assign({}, state, {
+        FirstRoom: { specialEvent: false, dogFriend: false }
+      });
+      return firstRoomDogVariable;
     default:
       return state;
   }

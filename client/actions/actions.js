@@ -10,6 +10,14 @@ const addItem = item => {
   return { type: "ADD_ITEM", payload: item };
 };
 
+const firstRoomMadeDogFriend = () => {
+  return { type: "FIRST_ROOM_MADE_DOG_FRIEND" };
+};
+
+const firstRoomMadeDogEnemy = () => {
+  return { type: "FIRST_ROOM_MADE_DOG_ENEMY" };
+};
+
 const guardRoomSuccess = () => {
   return { type: "GUARD_ROOM_SUCCESS" };
 };
@@ -80,6 +88,8 @@ export default {
   changeRoom,
   newName,
   addItem,
+  firstRoomMadeDogFriend,
+  firstRoomMadeDogEnemy,
   guardRoomSuccess,
   guardRoomFailure,
   pantryRoomTookCheese,

@@ -3,7 +3,7 @@ import actions from "../../actions/actions.js";
 import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
 
-const Items = ({ item, isDisplayingInventory, inventory }) => {
+const Items = ({ item, playerWeapon }) => {
   const dispatch = useDispatch();
 
   const options =
@@ -22,9 +22,14 @@ const Items = ({ item, isDisplayingInventory, inventory }) => {
       </div>
     ) : (
       <div>
-        <h3>{item.name}</h3>
+        <h3
+          className={item.name === playerWeapon ? "equippedWeapon" : "weapon"}
+        >
+          {item.name}
+        </h3>
         <button
           value={item}
+          className={item.name === playerWeapon ? "hideButton" : "equipButton"}
           onClick={e => {
             dispatch(actions.equipItem(item));
           }}
@@ -41,8 +46,7 @@ const mapStateToProps = (state, ownProps) => {
   const item = ownProps.item;
   return {
     item: item,
-    isDisplayingInventory: state.isDisplayingInventory,
-    inventory: state.playerInventory
+    playerWeapon: state.playerWeapon
   };
 };
 

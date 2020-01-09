@@ -3,33 +3,31 @@ import actions from "../../actions/actions.js";
 import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
 
-const Items = props => {
-  console.log(props);
-  console.log("items");
-  // const dispatch = useDispatch();
-  // const changeRoom = actions.changeRoom;
-  // const openInventory = actions.openInventory;
-
-  // const individualItems = inventory.map((values, idx) => {
-  //   return <Items name={value} />;
-  // });
-
-  // const items =
-  //   isDisplayingInventory === true ? <div>{individualItems}</div> : "";
+const Items = ({ item, isDisplayingInventory, inventory }) => {
+  const dispatch = useDispatch();
 
   return (
     <div>
-      <h3>{props.name}</h3>
-      <button value={props.name}>Equip</button>
+      <h3>{item.name}</h3>
+      <button
+        value={item}
+        onClick={e => {
+          dispatch(actions.equipItem(item));
+        }}
+      >
+        Equip
+      </button>
     </div>
   );
 };
 
-// const mapStateToProps = state => {
-//   return {
-//     isDisplayingInventory: state.isDisplayingInventory,
-//     inventory: state.playerInventory
-//   };
-// };
+const mapStateToProps = (state, ownProps) => {
+  const item = ownProps.item;
+  return {
+    item: item,
+    isDisplayingInventory: state.isDisplayingInventory,
+    inventory: state.playerInventory
+  };
+};
 
-export default Items;
+export default connect(mapStateToProps)(Items);

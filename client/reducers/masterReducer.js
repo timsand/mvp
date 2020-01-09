@@ -16,9 +16,31 @@ const initialState = {
   gameOver: false,
   deathText: "",
   playerHealth: 10,
+  playerAttack: 4,
+  playerWeapon: null,
   isFighting: false,
   currentEnemy: {},
   isDisplayingInventory: false
+};
+
+const playerAttack = (state = 4, action) => {
+  switch (action.type) {
+    case "EQUIP_ITEM":
+      console.log(action.payload);
+      console.log(action.payload.attack);
+      return action.payload.attack;
+    default:
+      return state;
+  }
+};
+
+const playerWeapon = (state = null, action) => {
+  switch (action.type) {
+    case "EQUIP_ITEM":
+      return action.payload.name;
+    default:
+      return state;
+  }
 };
 
 const isDisplayingInventory = (state = false, action) => {
@@ -191,7 +213,9 @@ const rootReducer = combineReducers({
   playerHealth,
   isFighting,
   currentEnemy,
-  isDisplayingInventory
+  isDisplayingInventory,
+  playerAttack,
+  playerWeapon
 });
 
 export default { rootReducer, initialState };

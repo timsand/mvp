@@ -3,14 +3,15 @@ import actions from "../../actions/actions.js";
 import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
 
-const FightRoom = ({ currentEnemy, playerHealth }) => {
+const FightRoom = ({ currentEnemy, playerHealth, playerAttack }) => {
   const dispatch = useDispatch();
   const damageEnemy = actions.damageEnemy;
   const damagePlayer = actions.damagePlayer;
   const fightEnded = actions.fightEnded;
 
   const attack = () => {
-    let attackValue = Math.round(Math.random() * 5);
+    let attackValue = Math.round(Math.random() * 2);
+    attackValue += playerAttack;
     if (currentEnemy.hp - attackValue <= 0) {
       dispatch(damageEnemy(attackValue));
     } else {
@@ -65,7 +66,8 @@ const FightRoom = ({ currentEnemy, playerHealth }) => {
 const mapStateToProps = state => {
   return {
     currentEnemy: state.currentEnemy,
-    playerHealth: state.playerHealth
+    playerHealth: state.playerHealth,
+    playerAttack: state.playerAttack
   };
 };
 

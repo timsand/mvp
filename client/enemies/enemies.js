@@ -1,6 +1,6 @@
 const smallRat = {
   name: "Small Rat",
-  hp: 4,
+  hp: 7,
   attack: 2
 };
 

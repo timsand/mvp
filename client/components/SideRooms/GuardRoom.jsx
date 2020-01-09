@@ -17,7 +17,8 @@ const GuardRoom = ({ roomVariables }) => {
     console.log(roll);
 
     if (roll > 35) {
-      dispatch(addItem("rusty dagger"));
+      let rustyDagger = { name: "rusty dagger", attack: 7 };
+      dispatch(addItem(rustyDagger));
       dispatch(guardRoomSuccess());
     } else {
       dispatch(guardRoomFailure());

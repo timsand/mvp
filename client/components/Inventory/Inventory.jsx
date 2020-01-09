@@ -8,11 +8,10 @@ const Inventory = ({ isDisplayingInventory, inventory }) => {
   const dispatch = useDispatch();
   const changeRoom = actions.changeRoom;
   const displayInventory = actions.displayInventory;
-
-  console.log(inventory);
+  const closeInventory = actions.closeInventory;
 
   const individualItems = inventory.map((values, idx) => {
-    return <Items name={values} key={idx} />;
+    return <Items item={values} key={idx} />;
   });
 
   // const items =
@@ -23,7 +22,7 @@ const Inventory = ({ isDisplayingInventory, inventory }) => {
       <div>
         <h3
           onClick={() => {
-            dispatch(displayInventory());
+            dispatch(closeInventory());
           }}
         >
           Inventory

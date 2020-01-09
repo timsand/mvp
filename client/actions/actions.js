@@ -54,6 +54,10 @@ const closeInventory = () => {
   return { type: "CLOSE_INVENTORY" };
 };
 
+const equipItem = item => {
+  return { type: "EQUIP_ITEM", payload: item };
+};
+
 //helper functions
 
 export default {
@@ -70,5 +74,6 @@ export default {
   damageEnemy,
   damagePlayer,
   displayInventory,
-  closeInventory
+  closeInventory,
+  equipItem
 };

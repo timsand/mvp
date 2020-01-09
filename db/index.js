@@ -8,8 +8,8 @@ mongoose.connect(connectionString);
 
 let connection = mongoose.connection;
 
-var dumbSchema = new Schema({});
-var mvp = mongoose.model("mvp", dumbSchema, "savedData");
+let dumbSchema = new Schema({}, { strict: false });
+let dataModel = mongoose.model("savedData", dumbSchema);
 
 connection.on("error", () => {
   console.log("crashed");
@@ -20,7 +20,7 @@ connection.once("open", function() {
 
 const getSaveData = async function() {
   var queryPromise = new Promise((resolve, reject) => {
-    mvp.find({}, (err, result) => {
+    dataModel.find({}, (err, result) => {
       if (err) {
         reject(err);
       } else {
@@ -32,8 +32,6 @@ const getSaveData = async function() {
 };
 
 const insertSaveData = async function(data) {
-  let dumbSchema = new Schema({}, { strict: false });
-  let dataModel = mongoose.model("savedData", dumbSchema);
   var temp = new dataModel(data);
   var queryPromise = new Promise((resolve, reject) => {
     temp.save((err, result) => {
@@ -48,6 +46,14 @@ const insertSaveData = async function(data) {
   });
   return queryPromise;
 };
+
+// getSaveData()
+//   .then(data => {
+//     console.log(data[0]);
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
 
 module.exports.connection = connection;
 module.exports.getSaveData = getSaveData;

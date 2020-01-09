@@ -19,6 +19,17 @@ const App = ({ landingPage, gameOver, playerHealth, isFighting, state }) => {
       });
   };
 
+  const loadData = () => {
+    Axios.get("/save")
+      .then(data => {
+        data = data.data;
+        console.log(data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   if (landingPage) {
     return <LandingPage />;
   }
@@ -48,7 +59,13 @@ const App = ({ landingPage, gameOver, playerHealth, isFighting, state }) => {
         >
           Save
         </button>
-        <button>Load</button>
+        <button
+          onClick={() => {
+            loadData();
+          }}
+        >
+          Load
+        </button>
       </div>
     </div>
   );

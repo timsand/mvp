@@ -20,6 +20,16 @@ app.post("/save", (req, res) => {
     });
 });
 
+app.get("/save", (req, res) => {
+  db.getSaveData()
+    .then(data => {
+      res.send(data[0]);
+    })
+    .catch(err => {
+      res.status(404).send();
+    });
+});
+
 app.listen(port, () => {
   console.log(`listening on ${port}...`);
 });

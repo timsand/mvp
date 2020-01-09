@@ -38,9 +38,11 @@ const currentEnemy = (state = {}, action) => {
     case "FIGHT_ENDED":
       return {};
     case "DAMAGE_ENEMY":
-      let newHealth = state;
-      newHealth.hp = newHealth.hp - action.payload;
-      return newHealth;
+      let newHealth = state.hp - action.payload;
+      let newHealthObj = Object.assign({}, state, {
+        hp: newHealth
+      });
+      return newHealthObj;
     default:
       return state;
   }
@@ -50,6 +52,8 @@ const playerHealth = (state = 10, action) => {
   switch (action.type) {
     case "CHANGE_PLAYER_HEALTH":
       return action.payload;
+    case "DAMAGE_PLAYER":
+      return state - action.payload;
     default:
       return state;
   }

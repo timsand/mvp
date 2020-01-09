@@ -4,21 +4,45 @@ import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
 
 const FightRoom = ({ currentEnemy, playerHealth }) => {
-  console.log(currentEnemy);
   const dispatch = useDispatch();
-  const changeRoom = actions.changeRoom;
   const damageEnemy = actions.damageEnemy;
+  const damagePlayer = actions.damagePlayer;
+  const fightEnded = actions.fightEnded;
 
   const attack = () => {
     let attackValue = Math.round(Math.random() * 5);
-    dispatch(damageEnemy(attackValue));
-    if (currentEnemy.hp <= 0) {
-      console.log("they dead");
+    if (currentEnemy.hp - attackValue <= 0) {
+      dispatch(damageEnemy(attackValue));
     } else {
-      console.log("they mad");
-      console.log(currentEnemy.hp);
+      dispatch(damageEnemy(attackValue));
+      dispatch(damagePlayer(currentEnemy.attack));
     }
   };
+
+  const leave = () => {
+    dispatch(fightEnded());
+  };
+
+  const buttonOptions =
+    currentEnemy.hp <= 0 ? (
+      <div>
+        <button
+          onClick={() => {
+            leave();
+          }}
+        >
+          Return
+        </button>
+      </div>
+    ) : (
+      <button
+        onClick={() => {
+          attack();
+        }}
+      >
+        ATTACK
+      </button>
+    );
 
   return (
     <div>
@@ -30,24 +54,19 @@ const FightRoom = ({ currentEnemy, playerHealth }) => {
         </div>
         <div className="enemyHealthContainer">
           <h3 className="enemyHealthBar">Enemy Health</h3>
-          <p className="enemyHealthCount">{playerHealth}</p>
+          <p className="enemyHealthCount">{currentEnemy.hp}</p>
         </div>
       </div>
-      <div className="fightActions">
-        <button
-          onClick={() => {
-            attack();
-          }}
-        >
-          ATTACK
-        </button>
-      </div>
+      <div className="specialActions">{buttonOptions}</div>
     </div>
   );
 };
 
 const mapStateToProps = state => {
-  return { currentEnemy: state.currentEnemy, playerHealth: state.playerHealth };
+  return {
+    currentEnemy: state.currentEnemy,
+    playerHealth: state.playerHealth
+  };
 };
 
 export default connect(mapStateToProps)(FightRoom);

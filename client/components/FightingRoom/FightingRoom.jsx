@@ -62,7 +62,9 @@ const FightRoom = ({ currentEnemy, playerHealth, playerAttack }) => {
           <p className="enemyHealthCount">{currentEnemy.hp}</p>
         </div>
       </div>
-      <div className="specialActions">{buttonOptions}</div>
+      <div id="specialActionsFightWrapper">
+        <div className="specialActions">{buttonOptions}</div>
+      </div>
     </div>
   );
 };

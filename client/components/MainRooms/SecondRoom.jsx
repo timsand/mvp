@@ -3,6 +3,7 @@ import GuardRoom from "../SideRooms/GuardRoom.jsx";
 import actions from "../../actions/actions.js";
 import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
+import roomText from "../../textFiles/roomText.js";
 
 const SecondRoom = ({ currentRoom }) => {
   const dispatch = useDispatch();
@@ -10,7 +11,13 @@ const SecondRoom = ({ currentRoom }) => {
 
   return (
     <div>
-      <p>In the second room...</p>
+      <div id="textWrapperRoom">
+        <p>
+          In the second room...<br></br>
+          <br></br>
+          {roomText.roomTwoText}
+        </p>
+      </div>
       <div className="movementsBar">
         <button
           onClick={() => {

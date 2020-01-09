@@ -8,7 +8,9 @@ const LastRoom = () => {
   const changeRoom = actions.changeRoom;
   return (
     <div>
-      <p>The final fight begins!!!</p>
+      <div id="textWrapperRoom">
+        <p>The final fight begins!!!</p>
+      </div>
     </div>
   );
 };

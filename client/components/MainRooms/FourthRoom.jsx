@@ -19,10 +19,12 @@ const FourthRoom = ({ roomVariables }) => {
 
   const options = roomVariables.enemy ? (
     <div>
-      <p>
-        The guard blocks your path to the final room! There is only one way
-        forward!
-      </p>
+      <div id="textWrapperRoom">
+        <p>
+          The guard blocks your path to the final room! There is only one way
+          forward!
+        </p>
+      </div>
       <div className="specialActions">
         <button
           onClick={() => {
@@ -35,7 +37,9 @@ const FourthRoom = ({ roomVariables }) => {
     </div>
   ) : (
     <div>
-      <p>The guard lays slain on the floor. You are truly a monster.</p>
+      <div id="textWrapperRoom">
+        <p>The guard lays slain on the floor. You are truly a monster.</p>
+      </div>
       <div className="movementsBar">
         <button
           onClick={() => {

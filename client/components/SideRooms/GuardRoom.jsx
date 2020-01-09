@@ -29,10 +29,12 @@ const GuardRoom = ({ roomVariables }) => {
   const roomOptions =
     roomVariables.theftSuccess === undefined ? (
       <div>
-        <p>
-          A guard is snoozing against a chair. His sword is yours for the
-          taking!
-        </p>
+        <div id="textWrapperRoom">
+          <p>
+            A guard is snoozing against a chair. His sword is yours for the
+            taking!
+          </p>
+        </div>
         <div className="specialActions">
           <button
             onClick={() => {
@@ -45,11 +47,15 @@ const GuardRoom = ({ roomVariables }) => {
       </div>
     ) : roomVariables.theftSuccess === true ? (
       <div>
-        <p>Mission success text</p>
+        <div id="textWrapperRoom">
+          <p>Mission success text</p>
+        </div>
       </div>
     ) : (
       <div>
-        <p>Mission failed text</p>
+        <div id="textWrapperRoom">
+          <p>Mission failed text</p>
+        </div>
       </div>
     );
 

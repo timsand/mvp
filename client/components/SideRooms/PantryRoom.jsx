@@ -13,14 +13,18 @@ const PantryRoom = ({ roomVariables }) => {
   const options =
     roomVariables.tookCheese === true ? (
       <div>
-        <p>No more cheese? No more reason to stay.</p>
+        <div id="textWrapperRoom">
+          <p>No more cheese? No more reason to stay.</p>
+        </div>
       </div>
     ) : (
       <div>
-        <p>
-          This area seems filled with food. You can see pastries, and meat, and
-          is that... CHEESE?!?
-        </p>
+        <div id="textWrapperRoom">
+          <p>
+            This area seems filled with food. You can see pastries, and meat,
+            and is that... CHEESE?!?
+          </p>
+        </div>
         <div className="specialActions">
           <button
             onClick={() => {

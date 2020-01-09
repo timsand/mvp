@@ -3,6 +3,7 @@ import actions from "../../actions/actions.js";
 import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
 import enemies from "../../enemies/enemies.js";
+import roomText from "../../textFiles/roomText.js";
 
 const ThirdRoom = ({ roomVariables }) => {
   roomVariables = roomVariables.ThirdRoom;
@@ -19,7 +20,14 @@ const ThirdRoom = ({ roomVariables }) => {
 
   const options = roomVariables.enemy ? (
     <div>
-      <p>A giant rat blocks your path... There is only one way forward!</p>
+      <div id="textWrapperRoom">
+        <p>
+          A giant rat blocks your path... There is only one way forward!
+          <br></br>
+          <br></br>
+          {roomText.roomThreeText}
+        </p>
+      </div>
       <div className="specialActions">
         <button
           onClick={() => {
@@ -32,7 +40,13 @@ const ThirdRoom = ({ roomVariables }) => {
     </div>
   ) : (
     <div>
-      <p>The rat lays slain on the floor. You are truly a hero.</p>
+      <div id="textWrapperRoom">
+        <p>
+          The rat lays slain on the floor. You are truly a hero.<br></br>
+          <br></br>
+          {roomText.roomThreeText}
+        </p>
+      </div>
       <div className="movementsBar">
         <button
           onClick={() => {

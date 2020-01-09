@@ -14,7 +14,7 @@ const initialState = {
   landingPage: true,
   roomVariables: {
     FirstRoom: { specialEvent: true, dogFriend: false },
-    GuardRoom: {},
+    GuardRoom: { theftSuccess: null },
     ThirdRoom: { enemy: true },
     FourthRoom: { enemy: true },
     PantryRoom: { tookCheese: false },
@@ -34,6 +34,8 @@ const playerAttack = (state = 4, action) => {
   switch (action.type) {
     case "EQUIP_ITEM":
       return action.payload.attack;
+    case "LOAD_DATA":
+      return action.payload.playerAttack;
     default:
       return state;
   }
@@ -43,6 +45,8 @@ const playerWeapon = (state = null, action) => {
   switch (action.type) {
     case "EQUIP_ITEM":
       return action.payload.name;
+    case "LOAD_DATA":
+      return action.payload.playerWeapon;
     default:
       return state;
   }
@@ -54,6 +58,8 @@ const isDisplayingInventory = (state = false, action) => {
       return true;
     case "CLOSE_INVENTORY":
       return false;
+    case "LOAD_DATA":
+      return action.payload.isDisplayingInventory;
     default:
       return state;
   }
@@ -65,6 +71,8 @@ const isFighting = (state = false, action) => {
       return true;
     case "FIGHT_ENDED":
       return false;
+    case "LOAD_DATA":
+      return action.payload.isFighting;
     default:
       return state;
   }
@@ -72,6 +80,13 @@ const isFighting = (state = false, action) => {
 
 const currentEnemy = (state = {}, action) => {
   switch (action.type) {
+    case "LOAD_DATA":
+      //this is bad, and a messy fix to loading enemies in
+      if (action.payload.currentEnemy) {
+        return action.payload.currentEnemy;
+      } else {
+        return {};
+      }
     case "NEW_FIGHT":
       return action.payload;
     case "FIGHT_ENDED":
@@ -89,6 +104,8 @@ const currentEnemy = (state = {}, action) => {
 
 const playerHealth = (state = 10, action) => {
   switch (action.type) {
+    case "LOAD_DATA":
+      return action.payload.playerHealth;
     case "CHANGE_PLAYER_HEALTH":
       return action.payload;
     case "DAMAGE_PLAYER":
@@ -102,6 +119,8 @@ const playerHealth = (state = 10, action) => {
 
 const deathText = (state = "", action) => {
   switch (action.type) {
+    case "LOAD_DATA":
+      return action.payload.deathText;
     case "GAME_OVER":
       return action.payload;
     default:
@@ -111,6 +130,8 @@ const deathText = (state = "", action) => {
 
 const gameOver = (state = false, action) => {
   switch (action.type) {
+    case "LOAD_DATA":
+      return action.payload.gameOver;
     case "GAME_OVER":
       return true;
     default:
@@ -120,6 +141,8 @@ const gameOver = (state = false, action) => {
 
 const roomVariables = (state = {}, action) => {
   switch (action.type) {
+    case "LOAD_DATA":
+      return action.payload.roomVariables;
     case "GUARD_ROOM_SUCCESS":
       let guardSuccess = Object.assign({}, state, {
         GuardRoom: {
@@ -171,6 +194,8 @@ const roomVariables = (state = {}, action) => {
 
 const landingPage = (state = true, action) => {
   switch (action.type) {
+    case "LOAD_DATA":
+      return action.payload.landingPage;
     case "NEW_NAME":
       return false;
     default:
@@ -180,6 +205,8 @@ const landingPage = (state = true, action) => {
 
 const playerInventory = (state = [], action) => {
   switch (action.type) {
+    case "LOAD_DATA":
+      return action.payload.playerInventory;
     case "ADD_ITEM":
       let newState = state.slice();
       newState.push(action.payload);
@@ -195,6 +222,8 @@ const playerInventory = (state = [], action) => {
 
 const playerName = (state = "", action) => {
   switch (action.type) {
+    case "LOAD_DATA":
+      return action.payload.playerName;
     case "NEW_NAME":
       return action.payload;
     default:
@@ -205,6 +234,8 @@ const playerName = (state = "", action) => {
 const currentRoom = (state = "", action) => {
   let room = action.payload;
   switch (action.type) {
+    case "LOAD_DATA":
+      return action.payload.currentRoom;
     case "CHANGE_ROOM":
       return room;
     default:

@@ -82,6 +82,10 @@ const equipItem = item => {
   return { type: "EQUIP_ITEM", payload: item };
 };
 
+const loadData = data => {
+  return { type: "LOAD_DATA", payload: data };
+};
+
 //helper functions
 
 export default {
@@ -105,5 +109,6 @@ export default {
   closeInventory,
   equipItem,
   healPlayer,
-  removeItem
+  removeItem,
+  loadData
 };

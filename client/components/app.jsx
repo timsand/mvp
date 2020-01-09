@@ -1,13 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
 import Axios from "axios";
 import LandingPage from "./LandingPage.jsx";
 import GameOver from "./GameOver.jsx";
 import RoomRendering from "./RoomRendering.jsx";
 import FightingRoom from "./FightingRoom/FightingRoom.jsx";
 import Inventory from "./Inventory/Inventory.jsx";
+import actions from "../actions/actions.js";
 
 const App = ({ landingPage, gameOver, playerHealth, isFighting, state }) => {
+  const dispatch = useDispatch();
+
   const saveData = () => {
     Axios.post("/save", state)
       .then(() => {
@@ -24,6 +28,8 @@ const App = ({ landingPage, gameOver, playerHealth, isFighting, state }) => {
       .then(data => {
         data = data.data;
         console.log(data);
+        dispatch(actions.loadData(data));
+        a;
       })
       .catch(err => {
         console.log(err);

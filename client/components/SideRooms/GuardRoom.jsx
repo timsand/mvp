@@ -26,7 +26,7 @@ const GuardRoom = ({ roomVariables }) => {
   };
 
   const roomOptions =
-    roomVariables.theftSuccess === undefined ? (
+    roomVariables.theftSuccess === null ? (
       <div>
         <div id="textWrapperRoom">
           <p>

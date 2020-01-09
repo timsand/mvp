@@ -6,6 +6,44 @@
   margin: 15px;
 }
 
+.playerHealthCount {
+  color: green;
+  font-size: 17px;
+}
+
+.enemyHealthCount {
+  color: red;
+  font-size: 17px;
+}
+
+.specialActions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#fightContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#fightContainer > * {
+  margin: 75px;
+}
+
+#fightTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#mainSidebar {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+}
+
 #gameOverWrapper {
   display: flex;
   justify-content: center;
@@ -22,4 +60,21 @@
 
 #deathEmoji {
   font-size: 32px;
+}
+
+#roomMasterContainer {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+}
+
+#textWrapperRoom {
+  background-color: rgba(201, 152, 104, 0.35);
+  text-align: center;
+  width: 500px;
+  height: 500px;
+  overflow: scroll;
+  border: 0.5px solid grey;
+  margin-bottom: 15px;
 }

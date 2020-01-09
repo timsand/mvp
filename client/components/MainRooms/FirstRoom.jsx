@@ -8,7 +8,9 @@ const FirstRoom = ({ playerName }) => {
   const changeRoom = actions.changeRoom;
   return (
     <div>
-      <p>You are in the FirstRoom {playerName}</p>
+      <div id="textWrapperRoom">
+        <p>You are in the FirstRoom {playerName}</p>
+      </div>
       <div className="movementsBar">
         <button
           onClick={() => {

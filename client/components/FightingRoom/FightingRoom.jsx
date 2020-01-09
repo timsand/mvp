@@ -51,7 +51,7 @@ const FightRoom = ({ currentEnemy, playerHealth, playerAttack }) => {
 
   return (
     <div>
-      <p>THE FIGHT BEGINS!</p>
+      <h2 id="fightTitle">THE FIGHT BEGINS!</h2>
       <div id="fightContainer">
         <div className="playerHealthContainer">
           <h3 className="playerHealthBar">Player Health</h3>

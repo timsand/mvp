@@ -18,12 +18,16 @@ const App = ({ landingPage, gameOver, playerHealth, isFighting }) => {
   }
   return (
     <div>
-      <div className="playerHealthContainer">
-        <h3 className="playerHealthBar">Player Health</h3>
-        <p className="playerHealthCount">{playerHealth}</p>
+      <div id="mainSidebar">
+        <div className="playerHealthContainer">
+          <h3 className="playerHealthBar">Player Health</h3>
+          <p className="playerHealthCount">{playerHealth}</p>
+        </div>
+        <Inventory />
       </div>
-      <Inventory />
-      <RoomRendering />
+      <div id="roomMasterContainer">
+        <RoomRendering />
+      </div>
     </div>
   );
 };

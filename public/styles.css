@@ -6,7 +6,20 @@
   margin: 15px;
 }
 
+#gameOverWrapper {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+}
+
 #deathHeader {
+  font-family: "Creepster", cursive;
   color: maroon;
-  font-weight: bold;
+  font-size: 38px;
+  font-weight: 400;
+}
+
+#deathEmoji {
+  font-size: 32px;
 }

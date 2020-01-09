@@ -4,9 +4,10 @@ import { connect } from "react-redux";
 
 const GameOver = ({ deathText }) => {
   return (
-    <div>
+    <div id="gameOverWrapper">
       <h3 id="deathHeader">UNTIMELY DEATH</h3>
       <p>{deathText}</p>
+      <p id="deathEmoji">☠️☠️☠️ ☠️☠️☠️ ☠️☠️☠️</p>
     </div>
   );
 };

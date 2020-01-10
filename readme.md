@@ -1,40 +1,43 @@
-TextAdventure
+# TextAdventure
+
 TextAdventure is a text adventure game where you play as a lowly goblin trying to escape from his oafish human masters.
 
-In Action
-TODO
+# User Stories
 
-User Stories
--Create a player object with health/name
-*Make that player have an inventory
-*Additional player features
--Five rooms, when user reaches the last room the game is over
-\*Add directions for the rooms, rooms can split
--Save feature with back-end tech
--Launch game asking for name
--Add dialogue into the game for certain rooms
--Add fighting into the game
-Front-End
+-The player can enter in their name and have it displayed in the text
+-Player has an HP value that can be modified
+-Player has an inventory that can store/show items
+-Player has an attack value that can be modified by equipping weapons
+-The player can fight enemies
+-The player is shown a game over screen if they die
+-The user can navigate between multiple rooms
+-The user can make decisions that will have consequences later on
+-The player can save their game, and load a game
+
+# Front-End
+
 React/Redux
 
-Back-End
+# Back-End
+
 Express
-If time permits, Mongo for saving
+MongoAtlas
 
-Deployment
-Out of Scope
+# Get started
 
-Get started
 Take the following steps to run the app in your localhost, you will need to have the following:
 
-A MongoDB Atlas cluster must be set up, and the appropriate cluster URI and password must be added to the db/config.js file.
+A MongoDB Atlas cluster must be set up, and the appropriate cluster URI and password must be added to the db/index.js file, and the password must be modified in the pw.js file. You can run the game without this, but the save/load features will not work.
+
 From terminal in the index folder:
 
 npm install
 npm start
-Challenges
-For this project, I wanted to learn React Bootstrap. React Bootstrap was fairly straight-forward, however I did end up having to introduce React Hooks to provide some features.
-Learnings
-React Hooks were necessary for being able to control two separate modals from one React component. This was my first exposure to React Hooks, however I found them to be extremely useful and relatively easy to implement.
-Contributors
-John Connolly
+
+# Challenges
+
+This was my first time with Redux, and setting up all the boilerplate was challenging. In addition, I ran into issues when I wanted to update multiple parts of state at once.
+
+# Learnings
+
+I learned a lot about how combineReducers/Redux architecture works. I learned that you should try to seperate every "slice" of state to its own reducer.

@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 
 const Inventory = ({ isDisplayingInventory, inventory }) => {
   const dispatch = useDispatch();
-  const changeRoom = actions.changeRoom;
   const displayInventory = actions.displayInventory;
   const closeInventory = actions.closeInventory;
 
@@ -20,26 +19,32 @@ const Inventory = ({ isDisplayingInventory, inventory }) => {
   if (isDisplayingInventory) {
     return (
       <div>
-        <h3
-          onClick={() => {
-            dispatch(closeInventory());
-          }}
-        >
-          Inventory
-        </h3>
+        <div id="inventoryIconWrapper">
+          <div id="inventoryIcon"></div>
+          <h3
+            onClick={() => {
+              dispatch(closeInventory());
+            }}
+          >
+            Inventory
+          </h3>
+        </div>
         {individualItems}
       </div>
     );
   } else {
     return (
       <div>
-        <h3
-          onClick={() => {
-            dispatch(displayInventory());
-          }}
-        >
-          Inventory
-        </h3>
+        <div id="inventoryIconWrapper">
+          <div id="inventoryIcon"></div>
+          <h3
+            onClick={() => {
+              dispatch(displayInventory());
+            }}
+          >
+            Inventory
+          </h3>
+        </div>
       </div>
     );
   }

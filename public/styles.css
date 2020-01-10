@@ -1,3 +1,11 @@
+body {
+  font-family: "Courgette";
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 .movementsBar {
   border: 1px solid black;
 }
@@ -38,7 +46,9 @@
 
 .playerHealthCount {
   color: green;
-  font-size: 17px;
+  font-size: 24px;
+  margin-left: 10px;
+  margin-top: 1rem;
 }
 
 .enemyHealthCount {
@@ -114,6 +124,37 @@
   align-items: flex-end;
   position: fixed;
 } */
+
+#playerHealthIcon {
+  background-image: url("./pics/game.png");
+  height: 30px;
+  width: 30px;
+  background-size: contain;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+#playerHealthIconWrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  height: 32px;
+  margin-bottom: 10px;
+}
+
+#inventoryIcon {
+  background-image: url("./pics/bag.png");
+  height: 32px;
+  width: 32px;
+  background-size: contain;
+  margin-right: 10px;
+  margin-top: 7px;
+}
+
+#inventoryIconWrapper {
+  display: flex;
+  flex-direction: row;
+  height: 32px;
+}
 
 #textWrapperRoom {
   background-color: rgba(201, 152, 104, 0.35);

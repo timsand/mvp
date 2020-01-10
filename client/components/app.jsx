@@ -8,6 +8,7 @@ import RoomRendering from "./RoomRendering.jsx";
 import FightingRoom from "./FightingRoom/FightingRoom.jsx";
 import Inventory from "./Inventory/Inventory.jsx";
 import actions from "../actions/actions.js";
+import heartIcon from "../pics/heart.svg";
 
 const App = ({ landingPage, gameOver, playerHealth, isFighting, state }) => {
   const dispatch = useDispatch();
@@ -48,8 +49,11 @@ const App = ({ landingPage, gameOver, playerHealth, isFighting, state }) => {
     <div>
       <div id="mainSidebar">
         <div className="playerHealthContainer">
-          <h3 className="playerHealthBar">Player Health</h3>
-          <p className="playerHealthCount">{playerHealth}</p>
+          <div id="playerHealthIconWrapper">
+            <p className="playerHealthCount">{playerHealth}</p>
+            <h3 className="playerHealthBar">Player Health - </h3>
+            <div id="playerHealthIcon"></div>
+          </div>
         </div>
         <Inventory />
       </div>

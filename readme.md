@@ -4,15 +4,23 @@ TextAdventure is a text adventure game where you play as a lowly goblin trying t
 
 # User Stories
 
--The player can enter in their name and have it displayed in the text
--Player has an HP value that can be modified
--Player has an inventory that can store/show items
--Player has an attack value that can be modified by equipping weapons
--The player can fight enemies
--The player is shown a game over screen if they die
--The user can navigate between multiple rooms
--The user can make decisions that will have consequences later on
--The player can save their game, and load a game
+The player can enter in their name and have it displayed in the text
+
+Player has an HP value that can be modified
+
+Player has an inventory that can store/show items
+
+Player has an attack value that can be modified by equipping weapons
+
+The player can fight enemies
+
+The player is shown a game over screen if they die
+
+The user can navigate between multiple rooms
+
+The user can make decisions that will have consequences later on
+
+The player can save their game, and load a game
 
 # Front-End
 

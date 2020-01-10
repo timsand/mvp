@@ -1,7 +1,16 @@
-# TextAdventure
+# Introduction - TextAdventure
 
 TextAdventure is a text adventure game where you play as a lowly goblin trying to escape from his oafish human masters.
+
 <img src="./readMeAssets/shortestmvp.gif">
+
+# What does the app do?
+
+In this game, you play a character trying to make it to the final boss room. Along the way you can pick up weapons, consumable items and make choices that will effect the final ending.
+
+This game comes with fight scenes against monsters. You can attack and defeat these monsters, but beware - if you are ill equipped you will likely lose!
+
+This game has a save/load function if the correct password is entered into the Mongo connection string. You can save your files, but only the first load save is currently returned.
 
 # User Stories
 
@@ -23,7 +32,12 @@ The user can make decisions that will have consequences later on
 
 The player can save their game, and load a game
 
-# Front-End
+# Tech-Stack
+
+<img height="32" width="32" src="./readMeAssets/react.png">
+<img height="32" width="32" src="./readMeAssets/logo-redux.png">
+<img height="32" width="32" src="./readMeAssets/nodejs.png">
+<img height="32" width="32" src="./readMeAssets/mongoAtlas.png">
 
 React/Redux
 

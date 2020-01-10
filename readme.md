@@ -42,12 +42,10 @@ The player can save their game, and load a game
     <td align="center">Back-end</td>
   </tr>
   <tr>
-    <!-- <td align="center"><img src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" alt="React" title="React" width="80px"/></td> -->
     <td align="center"><img height="75" width="75" src="./readMeAssets/react.png" title="React"></td>
     <td align="center"><img height="75" width="75" src="./readMeAssets/logo-redux.png" title="Express"></td>
   </tr>
   <tr>
-    <!-- <td align="center"><img src="https://freshpet.com/wp-content/uploads/2018/01/puppy_party_freshpet.jpg" alt="Puppy" title="Puppy" width="80px"/></td> -->
     <td align="center"><img height="75" width="75" src="./readMeAssets/node-express.png" title="Express"></td>
     <td align="center"><img height="75" width="75" src="./readMeAssets/mongoAtlas.png" title="MongoAtlas"></td>
   </tr>

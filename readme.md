@@ -43,10 +43,10 @@ The player can save their game, and load a game
   </tr>
   <tr>
     <td align="center"><img height="75" width="75" src="./readMeAssets/react.png" title="React"></td>
-    <td align="center"><img height="75" width="75" src="./readMeAssets/logo-redux.png" title="Express"></td>
+    <td align="center"><img height="75" width="75" src="./readMeAssets/node-express.png" title="Express"></td>
   </tr>
   <tr>
-    <td align="center"><img height="75" width="75" src="./readMeAssets/node-express.png" title="Express"></td>
+    <td align="center"><img height="75" width="75" src="./readMeAssets/logo-redux.png" title="Redux"></td>
     <td align="center"><img height="75" width="75" src="./readMeAssets/mongoAtlas.png" title="MongoAtlas"></td>
   </tr>
 </table>

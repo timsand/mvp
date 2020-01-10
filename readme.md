@@ -1,7 +1,7 @@
 # TextAdventure
 
 TextAdventure is a text adventure game where you play as a lowly goblin trying to escape from his oafish human masters.
-<img src="./readMeAssets/mvp.gif">
+<img src="./readMeAssets/shortestmvp.gif">
 
 # User Stories
 

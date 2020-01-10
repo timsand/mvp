@@ -38,10 +38,7 @@ The player can save their game, and load a game
 <img height="48" width="48" src="./readMeAssets/nodejs.jpg"><img height="48" width="48" src="./readMeAssets/mongoAtlas.png">
 
 React/Redux
-
-# Back-End
-
-Express
+Node (Express)
 MongoAtlas
 
 # Get started

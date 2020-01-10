@@ -34,10 +34,8 @@ The player can save their game, and load a game
 
 # Tech-Stack
 
-<img height="32" width="32" src="./readMeAssets/react.png">
-<img height="32" width="32" src="./readMeAssets/logo-redux.png">
-<img height="32" width="32" src="./readMeAssets/nodejs.png">
-<img height="32" width="32" src="./readMeAssets/mongoAtlas.png">
+<img height="48" width="48" src="./readMeAssets/react.png"><img height="48" width="48" src="./readMeAssets/logo-redux.png">
+<img height="48" width="48" src="./readMeAssets/nodejs.jpg"><img height="48" width="48" src="./readMeAssets/mongoAtlas.png">
 
 React/Redux
 

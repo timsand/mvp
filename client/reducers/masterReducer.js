@@ -306,6 +306,7 @@ const rootReducer = combineReducers({
   playerName,
   playerMap,
   activeDialogue,
+  dialogueOptions,
   currentRoom,
   playerInventory,
   roomVariables,

@@ -14,8 +14,7 @@ g.addEdge("A", "C", "You too. Goodbye!");
 
 
 const DialogueRoom = ({ playerName }) => {
-  console.log(g);
-  g.printGraph();
+  console.log(g.getChoices("ROOT"));
   return (
     <div>
       <div id="textWrapperRoom">

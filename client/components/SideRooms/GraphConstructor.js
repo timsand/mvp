@@ -26,6 +26,11 @@ export default class Graph {
     //this.Adjlist.get(w).push(v);
   }
 
+  getChoices(id) {
+    let options = this.AdjList.get(id).choice;
+    return options;
+  }
+
   printGraph() {
     var get_keys = this.AdjList.keys();
 
@@ -73,5 +78,6 @@ export default class Graph {
 // // D -> A E 
 // // E -> A D F C 
 // // F -> E C 
-// g.printGraph();
-// // console.log(g.AdjList);
+// // g.printGraph();
+// // console.log(g.getChoices("A"));
+// console.log(g.AdjList);

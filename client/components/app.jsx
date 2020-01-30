@@ -8,7 +8,6 @@ import RoomRendering from "./RoomRendering.jsx";
 import FightingRoom from "./FightingRoom/FightingRoom.jsx";
 import Inventory from "./Inventory/Inventory.jsx";
 import actions from "../actions/actions.js";
-import heartIcon from "../pics/heart.svg";
 
 const App = ({ landingPage, gameOver, playerHealth, isFighting, state }) => {
   const dispatch = useDispatch();

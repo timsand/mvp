@@ -2,6 +2,7 @@ import React from "react";
 import actions from "../../actions/actions.js";
 import { connect } from "react-redux";
 import { useDispatch } from "react-redux";
+import ChangeRooms from "../Buttons/ChangeRooms.jsx";
 // import roomText from "../../textFiles/roomText.js";
 
 const FirstRoom = ({ playerName, roomVariables }) => {
@@ -48,38 +49,25 @@ const FirstRoom = ({ playerName, roomVariables }) => {
           </button>
         </div>
         <div className="movementsBar">
-          <button
-            onClick={() => {
-              dispatch(changeRoom("SecondRoom"));
-            }}
-            className="movementsButton"
-          >
-            Click me to advance to the Second Room
-          </button>
+          <ChangeRooms room="SecondRoom" />
+          <ChangeRooms room="DialogueRoom" />
         </div>
       </div>
     ) : (
-      <div>
-        <div id="textWrapperRoom">
-          <p>
-            You are in the FirstRoom {playerName}
-            <br></br>
-            <br></br>
-            {dogText}
-          </p>
+        <div>
+          <div id="textWrapperRoom">
+            <p>
+              You are in the FirstRoom {playerName}
+              <br></br>
+              <br></br>
+              {dogText}
+            </p>
+          </div>
+          <div className="movementsBar">
+            <ChangeRooms room="SecondRoom" />
+          </div>
         </div>
-        <div className="movementsBar">
-          <button
-            onClick={() => {
-              dispatch(changeRoom("SecondRoom"));
-            }}
-            className="movementsButton"
-          >
-            Click me to advance to the Second Room
-          </button>
-        </div>
-      </div>
-    );
+      );
 
   return <div>{options}</div>;
 };

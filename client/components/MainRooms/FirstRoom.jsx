@@ -8,7 +8,6 @@ import ChangeRooms from "../Buttons/ChangeRooms.jsx";
 const FirstRoom = ({ playerName, roomVariables }) => {
   roomVariables = roomVariables.FirstRoom;
   const dispatch = useDispatch();
-  const changeRoom = actions.changeRoom;
   const addItem = actions.addItem;
   const damagePlayer = actions.damagePlayer;
   const dogFriend = actions.firstRoomMadeDogFriend;

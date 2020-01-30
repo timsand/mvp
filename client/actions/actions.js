@@ -2,6 +2,14 @@ const changeRoom = roomName => {
   return { type: "CHANGE_ROOM", payload: roomName };
 };
 
+const beginDialogue = () => {
+  return { type: "BEGIN_DIALOGUE" }
+}
+
+const endDialogue = () => {
+  return { type: "END_DIALOGUE" }
+}
+
 const newName = name => {
   return { type: "NEW_NAME", payload: name };
 };
@@ -96,6 +104,8 @@ export default {
   changeRoom,
   newName,
   addItem,
+  beginDialogue,
+  endDialogue,
   firstRoomMadeDogFriend,
   firstRoomMadeDogEnemy,
   guardRoomSuccess,

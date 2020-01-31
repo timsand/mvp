@@ -18,18 +18,22 @@ const Dialogue = ({ playerName, speechNode }) => {
 
 
 
+
   let currentText = speechNode.getCurrentText(currentNode);
   let currentChoices = speechNode.getChoices(currentNode);
-  console.log(currentText);
-  console.log(currentChoices);
+  let modelChoices = currentChoices.map((choice, idx) => {
+    return (<button key={idx} data-nextnode={choice.to} onClick={(e) => { setCurrentNode(e.target.dataset.nextnode) }}>{choice.choice}</button>)
+  })
+  let goodbyeOption = currentChoices.length === 0 ? (<button onClick={() => { dispatch(actions.endDialogue()) }}>End talking</button>) : "";
   const dispatch = useDispatch();
   let options;
   options = (
     <div>
       <div id="textWrapperRoom">
-        <p>Hello there I'm talking lolol</p>
+        <p>{currentText}</p>
       </div>
-      <button onClick={() => { dispatch(actions.endDialogue()) }}>End talking</button>
+      {modelChoices}
+      {goodbyeOption}
     </div>)
   return (
     <div>{options}</div>

@@ -12,8 +12,8 @@ const initialState = {
   playerMap: playerMapContainer,
   playerInventory: [],
   landingPage: true,
-  activeDialogue: { talking: false, dialogue: [] },
-  dialogueOptions: [],
+  activeDialogue: false,
+  currentDialogue: {},
   roomVariables: {
     FirstRoom: { specialEvent: true, dogFriend: false },
     GuardRoom: { theftSuccess: null },
@@ -46,26 +46,21 @@ const playerAttack = (state = 4, action) => {
 const activeDialogue = (state = {}, action) => {
   switch (action.type) {
     case "BEGIN_DIALOGUE":
-      let currentDialogue = Object.assign({}, state, {
-        talking: true,
-        dialogue: action.payload
-      })
-      return currentDialogue;
+      return true;
     case "END_DIALOGUE":
-      let endDialogue = { talking: false, dialogue: [] }
-      return endDialogue;
+      return false;
     default:
       return state;
   }
 }
 
-const dialogueOptions = (state = [], action) => {
+const currentDialogue = (state = {}, action) => {
   switch (action.type) {
-    case "ADD_OPTIONS":
-      let dialogueOptions = Object.assign({}, state, {
-        dialogueOptions: action.payload
-      })
+    case "ADD_DIALOGUE":
+      let dialogueOptions = action.payload;
       return dialogueOptions;
+    case "END_DIALOGUE":
+      return {};
     default:
       return state;
   }
@@ -306,7 +301,7 @@ const rootReducer = combineReducers({
   playerName,
   playerMap,
   activeDialogue,
-  dialogueOptions,
+  currentDialogue,
   currentRoom,
   playerInventory,
   roomVariables,

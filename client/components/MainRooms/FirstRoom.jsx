@@ -49,7 +49,7 @@ const FirstRoom = ({ playerName, roomVariables }) => {
         </div>
         <div className="movementsBar">
           <ChangeRooms room="SecondRoom" />
-          <ChangeRooms room="DialogueRoom" />
+          <ChangeRooms room="TestCharacterSpeech" />
         </div>
       </div>
     ) : (

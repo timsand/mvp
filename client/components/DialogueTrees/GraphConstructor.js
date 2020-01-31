@@ -1,6 +1,3 @@
-
-
-
 export default class Graph {
   constructor(initialDialogue) {
     this.noOfVertices = 0;
@@ -29,6 +26,11 @@ export default class Graph {
   getChoices(id) {
     let options = this.AdjList.get(id).choice;
     return options;
+  }
+
+  getCurrentText(id) {
+    let currentText = this.AdjList.get(id).dialogue;
+    return currentText;
   }
 
   printGraph() {
@@ -80,4 +82,5 @@ export default class Graph {
 // // F -> E C 
 // // g.printGraph();
 // // console.log(g.getChoices("A"));
-// console.log(g.AdjList);
+// console.log(g.getCurrentText("A"));
+// console.log(g.getChoices("A"));

@@ -7,7 +7,7 @@ import FourthRoom from "./MainRooms/FourthRoom.jsx";
 import LastRoom from "./MainRooms/LastRoom.jsx";
 import GuardRoom from "./SideRooms/GuardRoom.jsx";
 import PantryRoom from "./SideRooms/PantryRoom.jsx";
-import DialogueRoom from "./SideRooms/DialogueRoom.jsx";
+import TestCharacterSpeech from "./SideRooms/TestCharacterSpeech.jsx";
 
 const App = ({ currentRoom }) => {
   switch (currentRoom) {
@@ -41,10 +41,10 @@ const App = ({ currentRoom }) => {
           <FourthRoom />
         </div>
       );
-    case "DialogueRoom":
+    case "TestCharacterSpeech":
       return (
         <div>
-          <DialogueRoom />
+          <TestCharacterSpeech />
         </div>
       )
     case "PantryRoom":

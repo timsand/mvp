@@ -2,8 +2,8 @@ import React from "react";
 import actions from "../../actions/actions.js";
 import { connect } from "react-redux";
 import { useDispatch } from "react-redux";
-import ChangeRooms from "../Buttons/ChangeRooms.jsx";
 import Graph from "./GraphConstructor.js";
+import { useState } from "react";
 
 
 var textDialogues = [["ROOT", "Well hello there"], ["A", "I hope you have a nice day"], ["B", "HOW DARE YOU SAY SUCH A THING, GET OUT!!!"], ["C", "Goodbye"]];
@@ -13,19 +13,26 @@ g.addEdge("ROOT", "B", "Your mother was a hamster, and your father smelled of el
 g.addEdge("A", "C", "You too. Goodbye!");
 
 
-const DialogueRoom = ({ playerName }) => {
-  console.log(g.getChoices("ROOT"));
-  return (
+const Dialogue = ({ playerName, speechNode }) => {
+  const [currentNode, setCurrentNode] = useState("ROOT");
+
+
+
+  let currentText = speechNode.getCurrentText(currentNode);
+  let currentChoices = speechNode.getChoices(currentNode);
+  console.log(currentText);
+  console.log(currentChoices);
+  const dispatch = useDispatch();
+  let options;
+  options = (
     <div>
       <div id="textWrapperRoom">
-        <p>
-          There is a mysterious man in the corner {playerName}...
-      </p>
+        <p>Hello there I'm talking lolol</p>
       </div>
-      <div className="movementsBar">
-        <ChangeRooms room="FirstRoom" />
-      </div>
-    </div>
+      <button onClick={() => { dispatch(actions.endDialogue()) }}>End talking</button>
+    </div>)
+  return (
+    <div>{options}</div>
   )
 }
 
@@ -34,4 +41,4 @@ const mapStateToProps = state => {
   return { playerName: state.playerName };
 }
 
-export default connect(mapStateToProps)(DialogueRoom);
+export default connect(mapStateToProps)(Dialogue);

@@ -10,6 +10,10 @@ const endDialogue = () => {
   return { type: "END_DIALOGUE" }
 }
 
+const addDialogue = (dialogue) => {
+  return { type: "ADD_DIALOGUE", payload: dialogue }
+}
+
 const newName = name => {
   return { type: "NEW_NAME", payload: name };
 };
@@ -104,6 +108,7 @@ export default {
   changeRoom,
   newName,
   addItem,
+  addDialogue,
   beginDialogue,
   endDialogue,
   firstRoomMadeDogFriend,

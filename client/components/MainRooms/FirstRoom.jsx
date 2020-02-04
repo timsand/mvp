@@ -3,7 +3,7 @@ import actions from "../../actions/actions.js";
 import { connect } from "react-redux";
 import { useDispatch } from "react-redux";
 import ChangeRooms from "../Buttons/ChangeRooms.jsx";
-// import roomText from "../../textFiles/roomText.js";
+import BaseRoom from "./BaseRoom.jsx";
 
 const FirstRoom = ({ playerName, roomVariables }) => {
   roomVariables = roomVariables.FirstRoom;
@@ -12,22 +12,17 @@ const FirstRoom = ({ playerName, roomVariables }) => {
   const damagePlayer = actions.damagePlayer;
   const dogFriend = actions.firstRoomMadeDogFriend;
   const dogEnemy = actions.firstRoomMadeDogEnemy;
-
   const dogText =
     roomVariables.dogFriend === true
       ? "The dog wags its tail happily at you!"
       : "Your hand still hurts from where the dog bit you...";
+  let roomText = roomVariables.dogFriend === true ? `You are in the FirstRoom ${playerName}..  ${dogText}` : `You are in the FirstRoom ${playerName}..  There's not much here except for a dog chewing on his bone...`;
+
+
   const options =
     roomVariables.specialEvent === true ? (
       <div>
-        <div id="textWrapperRoom">
-          <p>
-            You are in the FirstRoom {playerName}..
-            <br></br>
-            <br></br>
-            There's not much here except for a dog chewing on his bone...
-          </p>
-        </div>
+        <BaseRoom roomText={roomText} />
         <div className="specialActions">
           <button
             onClick={() => {
@@ -54,14 +49,7 @@ const FirstRoom = ({ playerName, roomVariables }) => {
       </div>
     ) : (
         <div>
-          <div id="textWrapperRoom">
-            <p>
-              You are in the FirstRoom {playerName}
-              <br></br>
-              <br></br>
-              {dogText}
-            </p>
-          </div>
+          <BaseRoom roomText={roomText} />
           <div className="movementsBar">
             <ChangeRooms room="SecondRoom" />
           </div>

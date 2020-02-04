@@ -26,6 +26,7 @@ const initialState = {
   deathText: "",
   playerHealth: 10,
   playerAttack: 4,
+  playerHunger: 5,
   playerWeapon: null,
   isFighting: false,
   currentEnemy: {},
@@ -42,6 +43,25 @@ const playerAttack = (state = 4, action) => {
       return state;
   }
 };
+
+const playerHunger = (state = 5, action) => {
+  switch (action.type) {
+    case "INCREASE_HUNGER":
+      if (state + action.payload > 5) {
+        return 5;
+      }
+      return state + action.payload;
+    case "DECREASE_HUNGER":
+      if (state - action.payload < 1) {
+        return 1;
+      }
+      return state - action.payload;
+    case "SET_HUNGER_TO_ZERO":
+      return 0;
+    default:
+      return state;
+  }
+}
 
 const activeDialogue = (state = {}, action) => {
   switch (action.type) {
@@ -299,6 +319,7 @@ const playerMap = (state = [], action) => {
 const rootReducer = combineReducers({
   landingPage,
   playerName,
+  playerHunger,
   playerMap,
   activeDialogue,
   currentDialogue,

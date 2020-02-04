@@ -2,6 +2,18 @@ const changeRoom = roomName => {
   return { type: "CHANGE_ROOM", payload: roomName };
 };
 
+const increaseHunger = hunger => {
+  return { type: "INCREASE_HUNGER", payload: hunger }
+}
+
+const decreaseHunger = hunger => {
+  return { type: "DECREASE_HUNGER", payload: hunger }
+}
+
+const setHungerToZero = () => {
+  return { type: "SET_HUNGER_TO_ZERO" }
+}
+
 const beginDialogue = () => {
   return { type: "BEGIN_DIALOGUE" }
 }
@@ -106,6 +118,9 @@ const loadData = data => {
 
 export default {
   changeRoom,
+  increaseHunger,
+  decreaseHunger,
+  setHungerToZero,
   newName,
   addItem,
   addDialogue,

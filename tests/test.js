@@ -67,6 +67,38 @@ describe('Basic Conversation', function () {
     })
   });
 
+  describe("Optional text displaying", () => {
+    beforeEach(() => {
+      let playerObj;
+      var textDialogues = [["ROOT", "Well hello there"], ["A", "I hope you have a nice day"], ["B", "HOW DARE YOU SAY SUCH A THING, GET OUT!!!"], ["SECRET", "That's ok, I deserve to be treated poorly.."], ["C", "Goodbye"]];
+      g = new Conversation(textDialogues);
+      g.addEdge("ROOT", "A", "I think I should probably get going...");
+      g.addEdge("ROOT", "B", "Your mother was a hamster, and your father smelled of elderberries!");
+      g.addEdge("A", "C", "You too. Goodbye!");
+      g.addEdge("B", "SECRET", "OH, BUT IT'S TRUE!!!", { manipulation: 5 })
+
+
+
+    })
+    it('should not return the secret with insufficient skill', () => {
+      playerObj = { manipulation: 4 };
+      let options = g.getChoices("B", playerObj);
+      expect(options.length).to.equal(0);
+    })
+
+    it('should return the secret with sufficient skill', () => {
+      playerObj = { manipulation: 10 }
+      let options = g.getChoices("B", playerObj);
+      expect(options[0].choice).to.include("OH, BUT IT'S TRUE!!!");
+    })
+
+    it('should return the secret with same skill as difficulty roll', () => {
+      playerObj = { manipulation: 5 };
+      let options = g.getChoices("B", playerObj);
+      expect(options[0].choice).to.include("OH, BUT IT'S TRUE!!!");
+    })
+  })
+
   describe("Complicated data sets", () => {
     beforeEach(() => {
       let textDialogues = [

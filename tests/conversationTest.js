@@ -15,17 +15,39 @@ class Graph {
     this.AdjList.set(id, { dialogue: dialogue, choice: [] });
   }
 
-  addEdge(id, next, choice = null) {
+  addEdge(id, next, choice, required) {
     let value = this.AdjList.get(id);
-    value.choice.push({ to: next, choice: choice });
+    if (!required) {
+      value.choice.push({ to: next, choice: choice, required: null });
+    } else {
+      value.choice.push({ to: next, choice: choice, required: required })
+    }
 
     //for undirected
     //this.Adjlist.get(w).push(v);
   }
 
-  getChoices(id) {
+  getChoices(id, player) {
+    let output = [];
+    if (!player) {
+      throw new Error('getChoices expects a player object to make comparisons but got ' + player);
+    }
     let options = this.AdjList.get(id).choice;
-    return options;
+    options.forEach((val) => {
+      if (val.required) {
+        for (let key in val.required) {
+          if (player[key] >= val.required[key]) {
+            output.push(val);
+          } else {
+            //decide here whether or not to return the option, but greyed out
+            continue;
+          }
+        }
+      } else {
+        output.push(val);
+      }
+    })
+    return output;
   }
 
   getCurrentText(id) {

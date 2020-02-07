@@ -14,6 +14,21 @@ describe('Basic Conversation', function () {
   let g;
   let verbose;
 
+
+  describe('Error Handling', function () {
+    beforeEach(() => {
+      var textDialogues = [["ROOT", "Well hello there"], ["A", "I hope you have a nice day"], ["B", "HOW DARE YOU SAY SUCH A THING, GET OUT!!!"], ["C", "Goodbye"]];
+      g = new Conversation(textDialogues);
+      g.addEdge("ROOT", "A", "I think I should probably get going...");
+      g.addEdge("ROOT", "B", "Your mother was a hamster, and your father smelled of elderberries!");
+      g.addEdge("A", "C", "You too. Goodbye!");
+    })
+    it('getChoices should throw when not given a player Object', () => {
+      let badfn = () => { g.getChoices("ROOT") };
+      expect(badfn).to.throw();
+    })
+  });
+
   describe('Basic Methods', function () {
     beforeEach(function () {
       var textDialogues = [["ROOT", "Well hello there"], ["A", "I hope you have a nice day"], ["B", "HOW DARE YOU SAY SUCH A THING, GET OUT!!!"], ["C", "Goodbye"]];
@@ -23,7 +38,8 @@ describe('Basic Conversation', function () {
       g.addEdge("A", "C", "You too. Goodbye!");
     })
     it('should return the following options at ROOT', function () {
-      let choicesArr = g.getChoices("ROOT");
+      let playerObj = { persuasion: 20 }
+      let choicesArr = g.getChoices("ROOT", playerObj);
       let choices = [];
       choicesArr.forEach((val) => { choices.push(val.choice) });
 
@@ -33,7 +49,8 @@ describe('Basic Conversation', function () {
     });
 
     it('should include the following options at node A', function () {
-      let choices = g.getChoices("A");
+      let playerObj = { persuasion: 20 }
+      let choices = g.getChoices("A", playerObj);
       assert.include(choices[0].choice, "Goodbye");
       assert.equal(choices.length, 1);
     })
@@ -94,21 +111,22 @@ describe('Basic Conversation', function () {
     })
 
     it('should provide the appropriate choices to navigate at any given point', () => {
-      let choicesArr = verbose.getChoices("ROOT");
+      let playerObj = { persuasion: 20 }
+      let choicesArr = verbose.getChoices("ROOT", playerObj);
       let choices = [];
       choicesArr.forEach((val) => { choices.push(val.choice) });
       expect(choices).to.include("Not much that you can take care of I'm afraid.");
       expect(choices).to.include("Thoughts on my mind.. Hoping you had some answers...");
 
       choices = [];
-      choicesArr = verbose.getChoices("B");
+      choicesArr = verbose.getChoices("B", playerObj);
       choicesArr.forEach((val) => { choices.push(val.choice) });
       expect(choices).to.include("What's out there, by that creepy shack?");
       expect(choices).to.include("Can I have some money please?");
       expect(choices).to.include("What do you think about those weird figures over there?");
 
       choices = [];
-      choicesArr = verbose.getChoices("Questions_Follow_A");
+      choicesArr = verbose.getChoices("Questions_Follow_A", playerObj);
       choicesArr.forEach((val) => { choices.push(val.choice) });
       expect(choices).to.include("I appreciate your candor. I'll take my leave");
       expect(choices).to.include("Got more on my mind...");
@@ -117,21 +135,22 @@ describe('Basic Conversation', function () {
     })
 
     it('should provide the appropriate routes to the correct nodes', () => {
-      let choicesArr = verbose.getChoices("ROOT");
+      let playerObj = { persuasion: 20 }
+      let choicesArr = verbose.getChoices("ROOT", playerObj);
       let choices = [];
       choicesArr.forEach((val) => { choices.push(val.to) });
       expect(choices).to.include("A");
       expect(choices).to.include("B");
 
       choices = [];
-      choicesArr = verbose.getChoices("B");
+      choicesArr = verbose.getChoices("B", playerObj);
       choicesArr.forEach((val) => { choices.push(val.to) });
       expect(choices).to.include("Questions_A");
       expect(choices).to.include("Questions_B");
       expect(choices).to.include("Questions_C");
 
       choices = [];
-      choicesArr = verbose.getChoices("Questions_Follow_A");
+      choicesArr = verbose.getChoices("Questions_Follow_A", playerObj);
       choicesArr.forEach((val) => { choices.push(val.to) });
       expect(choices).to.include("B");
       expect(choices).to.include("END");

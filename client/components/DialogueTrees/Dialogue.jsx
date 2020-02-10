@@ -13,14 +13,15 @@ g.addEdge("ROOT", "B", "Your mother was a hamster, and your father smelled of el
 g.addEdge("A", "C", "You too. Goodbye!");
 
 
-const Dialogue = ({ playerName, speechNode }) => {
+const Dialogue = ({ player, speechNode }) => {
   const [currentNode, setCurrentNode] = useState("ROOT");
 
 
 
 
   let currentText = speechNode.getCurrentText(currentNode);
-  let currentChoices = speechNode.getChoices(currentNode);
+  //fix me
+  let currentChoices = speechNode.getChoices(currentNode, { nothing: 0 });
   let modelChoices = currentChoices.map((choice, idx) => {
     return (
       <div key={`div${idx}`} className="dialogueOptionsContainer">
@@ -48,7 +49,7 @@ const Dialogue = ({ playerName, speechNode }) => {
 
 
 const mapStateToProps = state => {
-  return { playerName: state.playerName };
+  return { player: state.player };
 }
 
 export default connect(mapStateToProps)(Dialogue);

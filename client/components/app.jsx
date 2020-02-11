@@ -81,7 +81,7 @@ const App = ({ landingPage, gameOver, playerHealth, isFighting, state }) => {
 
 const mapStateToProps = state => {
   return {
-    playerName: state.playerName,
+    playerName: state.player.playerName,
     landingPage: state.landingPage,
     gameOver: state.gameOver,
     playerHealth: state.player.playerHealth,

@@ -71,7 +71,7 @@ const App = ({ currentRoom }) => {
 const mapStateToProps = state => {
   return {
     currentRoom: state.currentRoom,
-    playerName: state.playerName
+    playerName: state.player.playerName
   };
 };
 

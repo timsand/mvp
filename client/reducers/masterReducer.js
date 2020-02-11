@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import player from "./player.js";
 
 const playerMapContainer = [
   [{ roomName: "FirstRoom" }],
@@ -7,10 +8,8 @@ const playerMapContainer = [
 ];
 
 const initialState = {
-  playerName: "Grog",
   currentRoom: "FirstRoom",
   playerMap: playerMapContainer,
-  playerInventory: [],
   landingPage: true,
   activeDialogue: false,
   currentDialogue: {},
@@ -23,49 +22,19 @@ const initialState = {
     LastRoom: { friendlyMutt: false, enemy: true }
   },
   player: {
+    playerName: "",
+    playerInventory: [],
     playerHunger: 5,
+    playerAttack: 4,
+    playerWeapon: null,
     playerHealth: 10
   },
   gameOver: false,
   deathText: "",
-  // playerHealth: 10,
-  playerAttack: 4,
-  // playerHunger: 5,
-  playerWeapon: null,
   isFighting: false,
   currentEnemy: {},
   isDisplayingInventory: false
 };
-
-const playerAttack = (state = 4, action) => {
-  switch (action.type) {
-    case "EQUIP_ITEM":
-      return action.payload.attack;
-    case "LOAD_DATA":
-      return action.payload.playerAttack;
-    default:
-      return state;
-  }
-};
-
-// const playerHunger = (state = 5, action) => {
-//   switch (action.type) {
-//     case "INCREASE_HUNGER":
-//       if (state + action.payload > 5) {
-//         return 5;
-//       }
-//       return state + action.payload;
-//     case "DECREASE_HUNGER":
-//       if (state - action.payload < 1) {
-//         return 1;
-//       }
-//       return state - action.payload;
-//     case "SET_HUNGER_TO_ZERO":
-//       return 0;
-//     default:
-//       return state;
-//   }
-// }
 
 const activeDialogue = (state = {}, action) => {
   switch (action.type) {
@@ -89,17 +58,6 @@ const currentDialogue = (state = {}, action) => {
       return state;
   }
 }
-
-const playerWeapon = (state = null, action) => {
-  switch (action.type) {
-    case "EQUIP_ITEM":
-      return action.payload.name;
-    case "LOAD_DATA":
-      return action.payload.playerWeapon;
-    default:
-      return state;
-  }
-};
 
 const isDisplayingInventory = (state = false, action) => {
   switch (action.type) {
@@ -150,21 +108,6 @@ const currentEnemy = (state = {}, action) => {
       return state;
   }
 };
-
-// const playerHealth = (state = 10, action) => {
-//   switch (action.type) {
-//     case "LOAD_DATA":
-//       return action.payload.playerHealth;
-//     case "CHANGE_PLAYER_HEALTH":
-//       return action.payload;
-//     case "DAMAGE_PLAYER":
-//       return state - action.payload;
-//     case "HEAL_PLAYER":
-//       return state + action.payload;
-//     default:
-//       return state;
-//   }
-// };
 
 const deathText = (state = "", action) => {
   switch (action.type) {
@@ -257,34 +200,6 @@ const landingPage = (state = true, action) => {
   }
 };
 
-const playerInventory = (state = [], action) => {
-  switch (action.type) {
-    case "LOAD_DATA":
-      return action.payload.playerInventory;
-    case "ADD_ITEM":
-      let newState = state.slice();
-      newState.push(action.payload);
-      return newState;
-    case "REMOVE_ITEM":
-      let toRemove = state.slice();
-      toRemove.splice(toRemove.indexOf(action.payload.name), 1);
-      return toRemove;
-    default:
-      return state;
-  }
-};
-
-const playerName = (state = "", action) => {
-  switch (action.type) {
-    case "LOAD_DATA":
-      return action.payload.playerName;
-    case "NEW_NAME":
-      return action.payload;
-    default:
-      return state;
-  }
-};
-
 const currentRoom = (state = "", action) => {
   let room = action.payload;
   switch (action.type) {
@@ -301,81 +216,19 @@ const playerMap = (state = [], action) => {
   return state;
 };
 
-// const moveLeftReducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case "MOVE_LEFT":
-//       let playerMap = state.playerMap;
-//       let coords = state.currentCoordinates;
-//       let nextCoords = [coords[0] - 1, coords[1]];
-//       let row = nextCoords[0];
-//       let col = nextCoords[1];
-//       let newRoomName = playerMap[row][col].roomName;
-//       let newState = Object.assign({}, state, {
-//         currentRoom: newRoomName,
-//         currentCoordinates: nextCoords
-//       });
-//       return newState;
-//     default:
-//       return state;
-//   }
-// };
-
-const playerHunger = (state = 5, action) => {
-  switch (action.type) {
-    case "INCREASE_HUNGER":
-      if (state + action.payload > 5) {
-        return 5;
-      }
-      return state + action.payload;
-    case "DECREASE_HUNGER":
-      if (state - action.payload < 1) {
-        return 1;
-      }
-      return state - action.payload;
-    case "SET_HUNGER_TO_ZERO":
-      return 0;
-    default:
-      return state;
-  }
-}
-
-const playerHealth = (state = 10, action) => {
-  switch (action.type) {
-    case "LOAD_DATA":
-      return action.payload.playerHealth;
-    case "CHANGE_PLAYER_HEALTH":
-      return action.payload;
-    case "DAMAGE_PLAYER":
-      return state - action.payload;
-    case "HEAL_PLAYER":
-      return state + action.payload;
-    default:
-      return state;
-  }
-};
-
-const player = combineReducers({
-  playerHunger: playerHunger,
-  playerHealth: playerHealth
-})
-
 const rootReducer = combineReducers({
   landingPage,
   player,
-  playerName,
   playerMap,
   activeDialogue,
   currentDialogue,
   currentRoom,
-  playerInventory,
   roomVariables,
   gameOver,
   deathText,
   isFighting,
   currentEnemy,
   isDisplayingInventory,
-  playerAttack,
-  playerWeapon
 });
 
 export default { rootReducer, initialState };

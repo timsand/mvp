@@ -49,7 +49,7 @@ const TestCharacterSpeech = ({ playerName, roomDialogue, activeDialogue }) => {
 
 
 const mapStateToProps = state => {
-  return { playerName: state.playerName, activeDialogue: state.activeDialogue };
+  return { playerName: state.player.playerName, activeDialogue: state.activeDialogue };
 }
 
 export default connect(mapStateToProps)(TestCharacterSpeech);

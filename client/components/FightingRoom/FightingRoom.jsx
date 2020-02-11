@@ -40,14 +40,14 @@ const FightRoom = ({ currentEnemy, playerHealth, playerAttack }) => {
         </button>
       </div>
     ) : (
-      <button
-        onClick={() => {
-          attack();
-        }}
-      >
-        ATTACK
+        <button
+          onClick={() => {
+            attack();
+          }}
+        >
+          ATTACK
       </button>
-    );
+      );
 
   return (
     <div>
@@ -72,8 +72,8 @@ const FightRoom = ({ currentEnemy, playerHealth, playerAttack }) => {
 const mapStateToProps = state => {
   return {
     currentEnemy: state.currentEnemy,
-    playerHealth: state.playerHealth,
-    playerAttack: state.playerAttack
+    playerHealth: state.player.playerHealth,
+    playerAttack: state.player.playerAttack
   };
 };
 

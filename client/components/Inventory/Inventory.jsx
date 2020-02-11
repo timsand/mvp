@@ -66,7 +66,7 @@ const Inventory = ({ isDisplayingInventory, inventory }) => {
 const mapStateToProps = state => {
   return {
     isDisplayingInventory: state.isDisplayingInventory,
-    inventory: state.playerInventory
+    inventory: state.player.playerInventory
   };
 };
 

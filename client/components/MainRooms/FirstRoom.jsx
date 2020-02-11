@@ -60,7 +60,7 @@ const FirstRoom = ({ playerName, roomVariables }) => {
 };
 
 const mapStateToProps = state => {
-  return { playerName: state.playerName, roomVariables: state.roomVariables };
+  return { playerName: state.player.playerName, roomVariables: state.roomVariables };
 };
 
 export default connect(mapStateToProps)(FirstRoom);

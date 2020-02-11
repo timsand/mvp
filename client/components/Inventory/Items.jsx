@@ -21,23 +21,23 @@ const Items = ({ item, playerWeapon }) => {
         </button>
       </div>
     ) : (
-      <div>
-        <h3
-          className={item.name === playerWeapon ? "equippedWeapon" : "weapon"}
-        >
-          {item.name}
-        </h3>
-        <button
-          value={item}
-          className={item.name === playerWeapon ? "hideButton" : "equipButton"}
-          onClick={e => {
-            dispatch(actions.equipItem(item));
-          }}
-        >
-          Equip
+        <div>
+          <h3
+            className={item.name === playerWeapon ? "equippedWeapon" : "weapon"}
+          >
+            {item.name}
+          </h3>
+          <button
+            value={item}
+            className={item.name === playerWeapon ? "hideButton" : "equipButton"}
+            onClick={e => {
+              dispatch(actions.equipItem(item));
+            }}
+          >
+            Equip
         </button>
-      </div>
-    );
+        </div>
+      );
 
   return <div>{options}</div>;
 };
@@ -46,7 +46,7 @@ const mapStateToProps = (state, ownProps) => {
   const item = ownProps.item;
   return {
     item: item,
-    playerWeapon: state.playerWeapon
+    playerWeapon: state.player.playerWeapon
   };
 };
 

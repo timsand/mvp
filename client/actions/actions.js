@@ -113,6 +113,19 @@ const equipItem = item => {
 const loadData = data => {
   return { type: "LOAD_DATA", payload: data };
 };
+//////////////
+
+const visit = (name) => {
+  return { type: name }
+}
+
+const addMoney = (amount) => {
+  return { type: "ADD_MONEY", payload: amount };
+}
+
+const subtractMoney = (amount) => {
+  return { type: "SUBTRACT_MONEY", payload: amount };
+}
 
 //helper functions
 
@@ -145,5 +158,8 @@ export default {
   equipItem,
   healPlayer,
   removeItem,
-  loadData
+  loadData,
+  visit,
+  addMoney,
+  subtractMoney
 };

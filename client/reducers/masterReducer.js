@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import player from "./player.js";
+import roomVariables from "./roomReducer.js";
 
 const playerMapContainer = [
   [{ roomName: "FirstRoom" }],
@@ -8,22 +9,26 @@ const playerMapContainer = [
 ];
 
 const initialState = {
-  currentRoom: "FirstRoom",
+  currentRoom: "TutorialStart",
   playerMap: playerMapContainer,
   landingPage: true,
   activeDialogue: false,
   currentDialogue: {},
   roomVariables: {
-    FirstRoom: { specialEvent: true, dogFriend: false },
-    GuardRoom: { theftSuccess: null },
-    ThirdRoom: { enemy: true },
-    FourthRoom: { enemy: true },
-    PantryRoom: { tookCheese: false },
-    LastRoom: { friendlyMutt: false, enemy: true }
+    TutorialStart: { visited: false },
+    FirstRoom: { visited: false },
+    SecondRoom: { visited: false }
+    // FirstRoom: { specialEvent: true, dogFriend: false },
+    // GuardRoom: { theftSuccess: null },
+    // ThirdRoom: { enemy: true },
+    // FourthRoom: { enemy: true },
+    // PantryRoom: { tookCheese: false },
+    // LastRoom: { friendlyMutt: false, enemy: true }
   },
   player: {
     playerName: "",
     playerInventory: [],
+    playerMoney: 0,
     playerHunger: 5,
     playerAttack: 4,
     playerWeapon: null,
@@ -131,63 +136,63 @@ const gameOver = (state = false, action) => {
   }
 };
 
-const roomVariables = (state = {}, action) => {
-  switch (action.type) {
-    case "LOAD_DATA":
-      return action.payload.roomVariables;
-    case "GUARD_ROOM_SUCCESS":
-      let guardSuccess = Object.assign({}, state, {
-        GuardRoom: {
-          theftSuccess: true
-        }
-      });
-      return guardSuccess;
-    case "GUARD_ROOM_FAILURE":
-      let guardFailure = Object.assign({}, state, {
-        GuardRoom: {
-          theftSuccess: false
-        }
-      });
-      return guardFailure;
-    case "PANTRY_ROOM_TOOK_CHEESE":
-      let pantryRoomTookCheese = Object.assign({}, state, {
-        PantryRoom: { tookCheese: true }
-      });
-      return pantryRoomTookCheese;
-    case "THIRD_ROOM_ENEMY_BATTLE":
-      let thirdRoomEnemyBattle = Object.assign({}, state, {
-        ThirdRoom: {
-          enemy: false
-        }
-      });
-      return thirdRoomEnemyBattle;
-    case "FOURTH_ROOM_ENEMY_BATTLE":
-      let fourthRoomEnemyBattle = Object.assign({}, state, {
-        FourthRoom: {
-          enemy: false
-        }
-      });
-      return fourthRoomEnemyBattle;
-    case "FIRST_ROOM_MADE_DOG_FRIEND":
-      let lastRoomDogVariable = Object.assign({}, state, {
-        FirstRoom: { specialEvent: false, dogFriend: true },
-        LastRoom: { friendlyMutt: true, enemy: true }
-      });
-      return lastRoomDogVariable;
-    case "FIRST_ROOM_MADE_DOG_ENEMY":
-      let firstRoomDogVariable = Object.assign({}, state, {
-        FirstRoom: { specialEvent: false, dogFriend: false }
-      });
-      return firstRoomDogVariable;
-    case "FINAL_ROOM_ENEMY_BATTLE":
-      let finalRoomBattle = Object.assign({}, state, {
-        LastRoom: { enemy: false, dogFriend: true }
-      });
-      return finalRoomBattle;
-    default:
-      return state;
-  }
-};
+// const roomVariables = (state = {}, action) => {
+//   switch (action.type) {
+//     case "LOAD_DATA":
+//       return action.payload.roomVariables;
+//     case "GUARD_ROOM_SUCCESS":
+//       let guardSuccess = Object.assign({}, state, {
+//         GuardRoom: {
+//           theftSuccess: true
+//         }
+//       });
+//       return guardSuccess;
+//     case "GUARD_ROOM_FAILURE":
+//       let guardFailure = Object.assign({}, state, {
+//         GuardRoom: {
+//           theftSuccess: false
+//         }
+//       });
+//       return guardFailure;
+//     case "PANTRY_ROOM_TOOK_CHEESE":
+//       let pantryRoomTookCheese = Object.assign({}, state, {
+//         PantryRoom: { tookCheese: true }
+//       });
+//       return pantryRoomTookCheese;
+//     case "THIRD_ROOM_ENEMY_BATTLE":
+//       let thirdRoomEnemyBattle = Object.assign({}, state, {
+//         ThirdRoom: {
+//           enemy: false
+//         }
+//       });
+//       return thirdRoomEnemyBattle;
+//     case "FOURTH_ROOM_ENEMY_BATTLE":
+//       let fourthRoomEnemyBattle = Object.assign({}, state, {
+//         FourthRoom: {
+//           enemy: false
+//         }
+//       });
+//       return fourthRoomEnemyBattle;
+//     case "FIRST_ROOM_MADE_DOG_FRIEND":
+//       let lastRoomDogVariable = Object.assign({}, state, {
+//         FirstRoom: { specialEvent: false, dogFriend: true },
+//         LastRoom: { friendlyMutt: true, enemy: true }
+//       });
+//       return lastRoomDogVariable;
+//     case "FIRST_ROOM_MADE_DOG_ENEMY":
+//       let firstRoomDogVariable = Object.assign({}, state, {
+//         FirstRoom: { specialEvent: false, dogFriend: false }
+//       });
+//       return firstRoomDogVariable;
+//     case "FINAL_ROOM_ENEMY_BATTLE":
+//       let finalRoomBattle = Object.assign({}, state, {
+//         LastRoom: { enemy: false, dogFriend: true }
+//       });
+//       return finalRoomBattle;
+//     default:
+//       return state;
+//   }
+// };
 
 const landingPage = (state = true, action) => {
   switch (action.type) {

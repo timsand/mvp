@@ -29,6 +29,17 @@ const playerInventory = (state = [], action) => {
   }
 };
 
+const playerMoney = (state = 0, action) => {
+  switch (action.type) {
+    case "ADD_MONEY":
+      return action.payload + state;
+    case "SUBTRACT_MONEY":
+      return action.payload - state;
+    default:
+      return state;
+  }
+}
+
 const playerHunger = (state = 5, action) => {
   switch (action.type) {
     case "INCREASE_HUNGER":
@@ -88,6 +99,7 @@ const playerWeapon = (state = null, action) => {
 const player = combineReducers({
   playerName: playerName,
   playerInventory: playerInventory,
+  playerMoney: playerMoney,
   playerHunger: playerHunger,
   playerHealth: playerHealth,
   playerAttack: playerAttack,

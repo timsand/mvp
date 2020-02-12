@@ -1,16 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
-import FirstRoom from "./MainRooms/FirstRoom.jsx";
-import SecondRoom from "./MainRooms/SecondRoom.jsx";
+// import FirstRoom from "./MainRooms/FirstRoom.jsx";
+import FirstRoom from "./Tutorial/Main/FirstRoom.jsx";
+// import SecondRoom from "./MainRooms/SecondRoom.jsx";
+import SecondRoom from "./Tutorial/Main/SecondRoom.jsx";
 import ThirdRoom from "./MainRooms/ThirdRoom.jsx";
 import FourthRoom from "./MainRooms/FourthRoom.jsx";
 import LastRoom from "./MainRooms/LastRoom.jsx";
 import GuardRoom from "./SideRooms/GuardRoom.jsx";
 import PantryRoom from "./SideRooms/PantryRoom.jsx";
 import TestCharacterSpeech from "./SideRooms/TestCharacterSpeech.jsx";
+import TutorialStart from "./Tutorial/Main/TutorialStart.jsx";
 
 const App = ({ currentRoom }) => {
   switch (currentRoom) {
+    case "TutorialStart":
+      return (
+        <div>
+          <TutorialStart />
+        </div>
+      )
     case "FirstRoom":
       return (
         <div>

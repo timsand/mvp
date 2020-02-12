@@ -20,8 +20,7 @@ const Dialogue = ({ player, speechNode }) => {
 
 
   let currentText = speechNode.getCurrentText(currentNode);
-  //fix me
-  let currentChoices = speechNode.getChoices(currentNode, { nothing: 0 });
+  let currentChoices = speechNode.getChoices(currentNode, player);
   let modelChoices = currentChoices.map((choice, idx) => {
     return (
       <div key={`div${idx}`} className="dialogueOptionsContainer">

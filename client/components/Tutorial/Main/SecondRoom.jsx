@@ -23,7 +23,12 @@ const SecondRoom = ({ playerName, roomVariables }) => {
       {roomVariables.enemy ? (<div className="specialActions">
         <button onClick={fightEnemy()} />
       </div>) : null}
-      {roomVariables.enemy ? null : (<ChangeRooms currentRoom="SecondRoom" nextRoom="TutorialStart" />)}
+      {roomVariables.enemy ? null : (
+        <>
+          <ChangeRooms mapMany={["SecondRoom", "TutorialStart", "SecondRoomLootSide"]} currentRoom="SecondRoom" nextRoom="TutorialStart" />
+          {/* <ChangeRooms currentRoom="SecondRoom" nextRoom="SecondRoomLootSide" /> */}
+        </>
+      )}
     </div>
   )
 }

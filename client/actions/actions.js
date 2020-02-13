@@ -115,8 +115,8 @@ const loadData = data => {
 };
 //////////////
 
-const visit = (name) => {
-  return { type: name }
+const visit = (room) => {
+  return { type: room }
 }
 
 const addMoney = (amount) => {
@@ -125,6 +125,10 @@ const addMoney = (amount) => {
 
 const subtractMoney = (amount) => {
   return { type: "SUBTRACT_MONEY", payload: amount };
+}
+
+const clearEnemy = (room) => {
+  return { type: `CLEAR_ENEMY_${room}` };
 }
 
 //helper functions
@@ -161,5 +165,6 @@ export default {
   loadData,
   visit,
   addMoney,
-  subtractMoney
+  subtractMoney,
+  clearEnemy
 };

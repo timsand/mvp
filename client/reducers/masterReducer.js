@@ -17,7 +17,7 @@ const initialState = {
   roomVariables: {
     TutorialStart: { visited: false },
     FirstRoom: { visited: false },
-    SecondRoom: { visited: false }
+    SecondRoom: { visited: false, enemy: true }
     // FirstRoom: { specialEvent: true, dogFriend: false },
     // GuardRoom: { theftSuccess: null },
     // ThirdRoom: { enemy: true },

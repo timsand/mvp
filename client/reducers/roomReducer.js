@@ -90,10 +90,15 @@ const FirstRoom = (state = {}, action) => {
 const SecondRoom = (state = {}, action) => {
   switch (action.type) {
     case "VISIT_SecondRoom":
-      let newState = Object.assign({}, state, {
+      let visited = Object.assign({}, state, {
         visited: true
       });
-      return newState;
+      return visited;
+    case "CLEAR_ENEMY_SecondRoom":
+      let fightEnemy = Object.assign({}, state, {
+        enemy: false
+      })
+      return fightEnemy;
     default:
       return state;
   }

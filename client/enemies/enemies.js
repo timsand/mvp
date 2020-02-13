@@ -22,4 +22,10 @@ const woundedMinotaur = {
   attack: 5
 };
 
-export default { smallRat, lowlyGuard, minotaur, woundedMinotaur };
+const tutorialWeakCrazedShovelhead = {
+  name: "Crazed human",
+  hp: 3,
+  attack: 1
+}
+
+export default { smallRat, lowlyGuard, minotaur, woundedMinotaur, tutorialWeakCrazedShovelhead };

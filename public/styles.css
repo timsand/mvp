@@ -1,3 +1,8 @@
+html, body, #root {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   font-family: "Courgette";
 }
@@ -188,4 +193,42 @@ button:hover {
   height: 5rem;
   overflow: scroll;
   border-radius: 5px;
+}
+
+#landingPageContainer {
+  height: 100%;
+  width: 102%;
+  display: flex;
+  justify-content: center;
+  background-image: url(https://i.gifer.com/EkA5.gif);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+
+}
+
+#landingPageForm {
+  margin-top: 20vh;
+}
+
+#landingPageTitle {
+  font-family: 'MedievalSharp', cursive;
+  color: rgb(238,220,53);
+  margin-bottom: 5vh;
+}
+
+#landingPageSubContainer {
+  margin-top: 10rem;
+}
+
+#landingPageInput {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+  color: rgb(238,220,53)
+}
+
+#landingPageInput:focus {
+  outline: none !important;
+  border: 1px solid maroon;
 }

@@ -10,29 +10,30 @@ const LandingPage = () => {
 
   const updateState = e => {
     state.formData = e.target.value;
+    console.log(event.key);
   };
 
-  const sendNameToRedux = e => {
-    e.preventDefault();
-    dispatch(newName(state.formData));
-  };
+  const checkEnter = e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      dispatch(newName(state.formData));
+    }
+  }
 
   return (
-    <div>
-      <form
-        onSubmit={e => {
-          sendNameToRedux(e);
-        }}
-      >
+    <div id="landingPageContainer">
+      <div id="landingPageSubContainer">
+        <h2 id="landingPageTitle">Vampire the Masquerade: <br></br>Austin By Night</h2>
         <input
+          autoFocus
           placeholder="testMe"
           onChange={e => {
             updateState(e);
           }}
+          onKeyPress={e => checkEnter(e)}
+          id="landingPageInput"
         ></input>
-        <button type="submit">Enter</button>
-        <h5>Test</h5>
-      </form>
+      </div>
     </div>
   );
 };

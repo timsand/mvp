@@ -25,7 +25,7 @@ const SecondRoom = ({ playerName, roomVariables }) => {
       </div>) : null}
       {roomVariables.enemy ? null : (
         <>
-          <ChangeRooms mapMany={["SecondRoom", "TutorialStart", "SecondRoomLootSide"]} currentRoom="SecondRoom" nextRoom="TutorialStart" />
+          <ChangeRooms mapMany={["SecondRoom", "TutorialStart", "SecondRoomLootSide", "ThirdRoomA"]} currentRoom="SecondRoom" nextRoom="TutorialStart" />
           {/* <ChangeRooms currentRoom="SecondRoom" nextRoom="SecondRoomLootSide" /> */}
         </>
       )}

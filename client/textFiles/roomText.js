@@ -48,4 +48,10 @@ Cause dried no solid no an small so still widen. Ten weather evident smiling bed
 
 Repulsive questions contented him few extensive supported. Of remarkably thoroughly he appearance in. Supposing tolerably applauded or of be. Suffering unfeeling so objection agreeable allowance me of. Ask within entire season sex common far who family. As be valley warmth assure on. Park girl they rich hour new well way you. Face ye be me been room we sons fond. `;
 
-export default { roomOneText, roomTwoText, roomThreeText };
+const roomText = {
+  thirdRoomAText: `You start to feel more you, more... alive again. It's almost as if your senses were dulled before, drowned out in a cacaphony of noise. That veil has been lifted.
+  
+  The path you're on is narrow, perhaps only used for bikes looking to take a quick shortcut. You're more obscured here in the shadows, the narrow trees granting you some cover from prying eyes. The main path is still visible, if barely from this distance.`
+}
+
+export default roomText;

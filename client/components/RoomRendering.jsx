@@ -12,6 +12,7 @@ import PantryRoom from "./SideRooms/PantryRoom.jsx";
 import TestCharacterSpeech from "./SideRooms/TestCharacterSpeech.jsx";
 import TutorialStart from "./Tutorial/Main/TutorialStart.jsx";
 import SecondRoomLootSide from "./Tutorial/SideRooms/SecondRoomLootSide.jsx";
+import ThirdRoomA from "./Tutorial/Main/ThirdRoomA.jsx";
 
 const App = ({ currentRoom }) => {
   switch (currentRoom) {
@@ -45,10 +46,10 @@ const App = ({ currentRoom }) => {
           <GuardRoom />
         </div>
       );
-    case "ThirdRoom":
+    case "ThirdRoomA":
       return (
         <div>
-          <ThirdRoom />
+          <ThirdRoomA />
         </div>
       );
     case "FourthRoom":

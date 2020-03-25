@@ -116,6 +116,18 @@ const SecondRoomLootSide = (state = {}, action) => {
   }
 }
 
+const FourthRoomB = (state = {}, action) => {
+  switch (action.type) {
+    case "VISIT_FourthRoomB":
+      let newState = Object.assign({}, state, { vistied: true });
+      return newState;
+    case "CLEAR_ENEMY_FourthRoomB":
+      let fightEnemy = Object.assign({}, state, { enemy: false });
+      return fightEnemy;
+    default:
+      return state;
+  };
+}
 
 
 
@@ -123,7 +135,8 @@ const roomVariables = combineReducers({
   TutorialStart,
   FirstRoom,
   SecondRoom,
-  SecondRoomLootSide
+  SecondRoomLootSide,
+  FourthRoomB
 
 })
 

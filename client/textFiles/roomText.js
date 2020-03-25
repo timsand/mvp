@@ -51,7 +51,13 @@ Repulsive questions contented him few extensive supported. Of remarkably thoroug
 const roomText = {
   thirdRoomAText: `You start to feel more you, more... alive again. It's almost as if your senses were dulled before, drowned out in a cacaphony of noise. That veil has been lifted.
   
-  The path you're on is narrow, perhaps only used for bikes looking to take a quick shortcut. You're more obscured here in the shadows, the narrow trees granting you some cover from prying eyes. The main path is still visible, if barely from this distance.`
+  The path you're on is narrow, perhaps only used for bikes looking to take a quick shortcut. You're more obscured here in the shadows, the narrow trees granting you some cover from prying eyes. The main path is still visible, if barely from this distance.`,
+
+  thirdRoomBText: `Your senses start to slowly return, and with them, a sense of life once more. The haze that clouded your judgement seems to have passed for the time being.
+  
+  Looking forward, you can see the main path continuing onward. It's a little exposed here, with foliage only to your right. It sounds like there's a commotion up ahead.`,
+
+  fourthRoomAText: `You can here a commotion coming from the main path. Peering through the trees, you can see a fight breaking out between several people. Maybe you could try to peer further and get a better idea of what's going on?`
 }
 
 export default roomText;

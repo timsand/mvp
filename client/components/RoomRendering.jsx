@@ -13,6 +13,7 @@ import TestCharacterSpeech from "./SideRooms/TestCharacterSpeech.jsx";
 import TutorialStart from "./Tutorial/Main/TutorialStart.jsx";
 import SecondRoomLootSide from "./Tutorial/SideRooms/SecondRoomLootSide.jsx";
 import ThirdRoomA from "./Tutorial/Main/ThirdRoomA.jsx";
+import ThirdRoomB from "./Tutorial/Main/ThirdRoomB.jsx";
 import FourthRoomA from "./Tutorial/Main/FourthRoomA.jsx";
 
 const App = ({ currentRoom }) => {
@@ -53,6 +54,12 @@ const App = ({ currentRoom }) => {
           <ThirdRoomA />
         </div>
       );
+    case "ThirdRoomB":
+      return (
+        <div>
+          <ThirdRoomB />
+        </div>
+      )
     case "FourthRoomA":
       return (
         <div>

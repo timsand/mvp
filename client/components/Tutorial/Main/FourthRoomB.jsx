@@ -5,7 +5,7 @@ import ChangeRooms from "../../Buttons/ChangeRooms.jsx";
 import BaseRoom from "../../MainRooms/BaseRoom.jsx";
 import enemies from "../../../enemies/enemies.js";
 
-const SecondRoom = ({ playerName, roomVariables }) => {
+const FourthRoomB = ({ playerName, roomVariables }) => {
   const dispatch = useDispatch();
   const roomText = roomVariables.enemy ? `There is a ferocious creature ahead of you ${playerName}!!!` : `You killed him.`
   const clearEnemy = actions.clearEnemy;
@@ -37,4 +37,4 @@ const mapStateToProps = state => {
   return { roomVariables: state.roomVariables.SecondRoom, playerName: state.player.playerName };
 }
 
-export default connect(mapStateToProps)(SecondRoom);
+export default connect(mapStateToProps)(FourthRoomB);

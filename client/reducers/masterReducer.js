@@ -32,7 +32,8 @@ const initialState = {
     playerHunger: 5,
     playerAttack: 4,
     playerWeapon: null,
-    playerHealth: 10
+    playerHealth: 10,
+    playerInvestigation: 1
   },
   gameOver: false,
   deathText: "",

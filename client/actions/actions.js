@@ -113,7 +113,6 @@ const equipItem = item => {
 const loadData = data => {
   return { type: "LOAD_DATA", payload: data };
 };
-//////////////
 
 const visit = (room) => {
   return { type: room }
@@ -131,12 +130,22 @@ const clearEnemy = (room) => {
   return { type: `CLEAR_ENEMY_${room}` };
 }
 
+const increasePlayerInvestigation = () => {
+  return { type: "INCREASE_PLAYER_INVESTIGATION" };
+}
+
+const decreasePlayerInvestigation = () => {
+  return { type: "DECREASE_PLAYER_INVESTIGATION" };
+}
+
 //helper functions
 
 export default {
   changeRoom,
   increaseHunger,
   decreaseHunger,
+  increasePlayerInvestigation,
+  decreasePlayerInvestigation,
   setHungerToZero,
   newName,
   addItem,

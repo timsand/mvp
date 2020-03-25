@@ -96,6 +96,17 @@ const playerWeapon = (state = null, action) => {
   }
 };
 
+const playerInvestigation = (state = 1, action) => {
+  switch (action.type) {
+    case "INCREASE_PLAYER_INVESTIGATION":
+      return (state + 1);
+    case "DECREASE_PLAYER_INVESTIGATION":
+      return (state - 1);
+    default:
+      return state;
+  }
+}
+
 const player = combineReducers({
   playerName: playerName,
   playerInventory: playerInventory,
@@ -103,7 +114,8 @@ const player = combineReducers({
   playerHunger: playerHunger,
   playerHealth: playerHealth,
   playerAttack: playerAttack,
-  playerWeapon: playerWeapon
+  playerWeapon: playerWeapon,
+  playerInvestigation: playerInvestigation
 })
 
 export default player;

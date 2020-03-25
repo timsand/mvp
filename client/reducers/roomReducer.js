@@ -104,13 +104,26 @@ const SecondRoom = (state = {}, action) => {
   }
 }
 
+const SecondRoomLootSide = (state = {}, action) => {
+  switch (action.type) {
+    case "VISIT_SecondRoomLootSide":
+      let newState = Object.assign({}, state, {
+        visited: true
+      });
+      return newState;
+    default:
+      return state;
+  }
+}
+
 
 
 
 const roomVariables = combineReducers({
   TutorialStart,
   FirstRoom,
-  SecondRoom
+  SecondRoom,
+  SecondRoomLootSide
 
 })
 

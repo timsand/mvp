@@ -10,7 +10,6 @@ const LandingPage = () => {
 
   const updateState = e => {
     state.formData = e.target.value;
-    console.log(event.key);
   };
 
   const checkEnter = e => {
